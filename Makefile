@@ -13,13 +13,13 @@
 NAME=push_swap
 CFLAGS=-Wall -Wextra -Werror -g
 CC=gcc
-SOURCE=main.c
+SOURCE=main.c stack.c
 OBJ=$(SOURCE:.c=.o)
 RM= rm -f
 
 all:$(NAME)
 
-$(NAME): $(OBJ) norme
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 %.o:%.c
