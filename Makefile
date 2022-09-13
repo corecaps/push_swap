@@ -13,7 +13,7 @@
 NAME=push_swap
 CFLAGS=-Wall -Wextra -Werror -g
 CC=gcc
-SOURCE=main.c stack.c
+SOURCE=main.c stack.c parser.c ft_atoi.c
 OBJ=$(SOURCE:.c=.o)
 RM= rm -f
 

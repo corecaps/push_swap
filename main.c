@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 
 	top_a = NULL;
 	top_b = NULL;
-	if (parser(argc, argv, top_a, top_b))
+	if (parser(argc, argv, top_a))
 		ft_error(1);
 	return (0);
 }
