@@ -33,6 +33,7 @@ static int substr_parser(char *str, t_node **top_a)
 	pos = 0;
 	while (args[pos] != NULL)
 	{
+		print_stack(*top_a,NULL);
 		result = ft_atoi(args[pos]);
 		if (result.err)
 			return (1);
@@ -44,7 +45,7 @@ static int substr_parser(char *str, t_node **top_a)
 	return (0);
 }
 
-int	parser(int argc,char **argv,t_node *top_a)
+int	parser(int argc, char **argv, t_node **top_a)
 {
 	int pos;
 	t_result result;
@@ -54,9 +55,10 @@ int	parser(int argc,char **argv,t_node *top_a)
 	pos = 1;
 	while (pos < argc)
 	{
+		print_stack(*top_a,NULL);
 		if (space_in_string(argv[pos]))
 		{
-			if (substr_parser(argv[pos], &top_a))
+			if (substr_parser(argv[pos], top_a))
 				return (1);
 			else
 			{
@@ -66,7 +68,7 @@ int	parser(int argc,char **argv,t_node *top_a)
 		}
 		result = ft_atoi(argv[pos]);
 		if (result.err == 0)
-			top_a = push_bottom(top_a,result.n);
+			*top_a = push_bottom(*top_a,result.n);
 		// TODO Error handling
 		else
 			return (1);
