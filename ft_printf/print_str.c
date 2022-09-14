@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgarcia <jgarcia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 11:09:22 by jgarcia           #+#    #+#             */
-/*   Updated: 2022/09/01 11:12:44 by jgarcia          ###   ########.fr       */
+/*   Created: 2022/05/29 00:59:51 by jgarcia           #+#    #+#             */
+/*   Updated: 2022/06/02 02:36:09 by jgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-void	ft_error(int code)
-{
-	// TODO print error code
-	exit(code);
-}
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	print_str(const char *str)
 {
-	t_node *top_a;
-	t_node *top_b;
+	int	printed;
 
-	top_a = NULL;
-	top_b = NULL;
-	(void) top_b;
-	if (parser(argc, argv, top_a))
-		ft_error(1);
-	return (0);
+	printed = 0;
+	if (str == NULL)
+		return (write(1, "(null)", 6));
+	if (*str == '\0')
+		return (0);
+	while (*str)
+	{
+		printed += write(1, str, 1);
+		str ++;
+	}
+	return (printed);
 }

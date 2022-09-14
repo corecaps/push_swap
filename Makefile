@@ -13,18 +13,22 @@
 NAME=push_swap
 CFLAGS=-Wall -Wextra -Werror -g
 CC=gcc
+PRINTF=ft_printf/libftprintf.a
+LINK=-Lft_printf -lftprintf
 SOURCE=main.c stack.c parser.c ft_atoi.c
 OBJ=$(SOURCE:.c=.o)
 RM= rm -f
 
 all:$(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(PRINTF)
+	$(CC) $(OBJ) $(LINK) -o $(NAME)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(PRINTF):
+	make -C ft_printf
 clean:
 	$(RM) $(OBJ)
 

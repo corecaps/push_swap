@@ -24,6 +24,27 @@ t_node	*push(t_node *top, int n)
 	return (new);
 }
 
+t_node	*push_bottom(t_node *top, int n)
+{
+	t_node	*bottom;
+	t_node	*new;
+
+	if (top != NULL)
+		bottom = get_bottom(top);
+	else
+		bottom = NULL;
+	new = malloc(sizeof (t_node));
+	if (new == NULL)
+		return (NULL);
+	new->next = NULL;
+	new->n = n;
+	if (bottom == NULL)
+		top = new;
+	else
+		bottom->next = new;
+	return (top);
+}
+
 int	pop(t_node **top)
 {
 	int		n;

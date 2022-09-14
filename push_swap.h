@@ -13,6 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
+# include "ft_printf/ft_printf.h"
 typedef struct s_node
 {
 	int n;
@@ -25,6 +26,7 @@ typedef struct s_result
 } t_result;
 int		parser(int argc,char **argv,t_node *top_a);
 t_node	*push(t_node *top, int n);
+t_node	*push_bottom(t_node *top, int n);
 t_node	*get_bottom(t_node *top);
 int		pop(t_node **top);
 t_result 	ft_atoi(const char *str);

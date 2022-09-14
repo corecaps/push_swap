@@ -25,7 +25,8 @@ static int space_in_string(char *str)
 
 static int substr_parser(char *str, t_node *top_a)
 {
-
+	(void) str;
+	(void) top_a;
 	return (0);
 }
 
@@ -46,9 +47,10 @@ int	parser(int argc,char **argv,t_node *top_a)
 		}
 		result = ft_atoi(argv[pos]);
 		if (result.err == 0)
-			push(top_a,result.n);
+			top_a = push_bottom(top_a,result.n);
 		else
 			return (1);
 		pos ++;
 	}
+	return (0);
 }

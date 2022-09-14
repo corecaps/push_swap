@@ -53,7 +53,7 @@ t_result 	ft_atoi(const char *str)
 		result = result * 10 + str[pos] - '0';
 		pos ++;
 	}
-	if (ft_isdigit(str[pos]) == 0)
+	if (ft_isdigit(str[pos]))
 	{
 		res.err = 1;
 		res.n = 0;
