@@ -24,6 +24,12 @@ typedef struct s_result
 	int n;
 	int err;
 } t_result;
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char	*ft_strdup(char *src);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	**ft_split(const char *s, char c);
 int		parser(int argc,char **argv,t_node *top_a);
 t_node	*push(t_node *top, int n);
 t_node	*push_bottom(t_node *top, int n);

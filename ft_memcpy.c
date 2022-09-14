@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgarcia <jgarcia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 11:09:22 by jgarcia           #+#    #+#             */
-/*   Updated: 2022/09/01 11:12:44 by jgarcia          ###   ########.fr       */
+/*   Created: 2022/04/28 14:59:25 by jgarcia           #+#    #+#             */
+/*   Updated: 2022/05/23 14:18:20 by jgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_error(int code)
-{
-	ft_printf("Parsing Error");
-	exit(code);
-}
 
-int	main(int argc, char **argv)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_node *top_a;
-	t_node *top_b;
+	size_t			pos;
+	unsigned char	*s;
+	unsigned char	*d;
 
-	top_a = NULL;
-	top_b = NULL;
-	(void) top_b;
-	if (parser(argc, argv, top_a))
-		ft_error(1);
-	return (0);
+	s = (unsigned char *) src;
+	d = (unsigned char *) dest;
+	if (!s && !d)
+		return (NULL);
+	pos = 0;
+	if (n == 0)
+		return (dest);
+	while (pos < n)
+	{
+		d[pos] = s[pos];
+		pos ++;
+	}
+	return (dest);
 }

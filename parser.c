@@ -23,10 +23,24 @@ static int space_in_string(char *str)
 	return (0);
 }
 
-static int substr_parser(char *str, t_node *top_a)
+static int substr_parser(char *str, t_node **top_a)
 {
-	(void) str;
-	(void) top_a;
+	char		**args;
+	int			pos;
+	t_result 	result;
+
+	args = ft_split(str,' ');
+	pos = 0;
+	while (args[pos] != NULL)
+	{
+		result = ft_atoi(args[pos]);
+		if (result.err)
+			return (1);
+		else
+			*top_a = push_bottom(*top_a, result.n);
+		// TODO Error Handling
+		pos ++;
+	}
 	return (0);
 }
 
@@ -42,12 +56,18 @@ int	parser(int argc,char **argv,t_node *top_a)
 	{
 		if (space_in_string(argv[pos]))
 		{
-			if (substr_parser(argv[pos], top_a))
+			if (substr_parser(argv[pos], &top_a))
 				return (1);
+			else
+			{
+				pos ++;
+				continue;
+			}
 		}
 		result = ft_atoi(argv[pos]);
 		if (result.err == 0)
 			top_a = push_bottom(top_a,result.n);
+		// TODO Error handling
 		else
 			return (1);
 		pos ++;

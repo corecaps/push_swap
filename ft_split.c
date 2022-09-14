@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "push_swap.h"
 
 static int	clean(char **s, size_t size)
 {

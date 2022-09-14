@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgarcia <jgarcia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 11:09:22 by jgarcia           #+#    #+#             */
-/*   Updated: 2022/09/01 11:12:44 by jgarcia          ###   ########.fr       */
+/*   Created: 2022/05/09 23:26:42 by jgarcia           #+#    #+#             */
+/*   Updated: 2022/05/09 23:32:02 by jgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_error(int code)
-{
-	ft_printf("Parsing Error");
-	exit(code);
-}
 
-int	main(int argc, char **argv)
+char	*ft_strdup(char *src)
 {
-	t_node *top_a;
-	t_node *top_b;
+	int		size;
+	char	*dest;
+	int		pos;
 
-	top_a = NULL;
-	top_b = NULL;
-	(void) top_b;
-	if (parser(argc, argv, top_a))
-		ft_error(1);
-	return (0);
+	pos = 0;
+	size = ft_strlen (src);
+	dest = malloc(sizeof(char) * (size + 1));
+	if (dest != NULL)
+	{
+		while (*(src + pos) != '\0')
+		{
+			*(dest + pos) = *(src + pos);
+			pos ++;
+		}
+		*(dest + pos) = '\0';
+	}
+	return (dest);
 }

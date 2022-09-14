@@ -29,6 +29,7 @@ t_node	*push_bottom(t_node *top, int n)
 	t_node	*bottom;
 	t_node	*new;
 
+	// TODO check for double entry
 	if (top != NULL)
 		bottom = get_bottom(top);
 	else

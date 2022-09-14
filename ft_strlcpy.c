@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgarcia <jgarcia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 11:09:22 by jgarcia           #+#    #+#             */
-/*   Updated: 2022/09/01 11:12:44 by jgarcia          ###   ########.fr       */
+/*   Created: 2022/05/10 23:17:25 by jgarcia           #+#    #+#             */
+/*   Updated: 2022/05/23 14:20:27 by jgarcia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_error(int code)
-{
-	ft_printf("Parsing Error");
-	exit(code);
-}
 
-int	main(int argc, char **argv)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	t_node *top_a;
-	t_node *top_b;
+	size_t	src_size;
 
-	top_a = NULL;
-	top_b = NULL;
-	(void) top_b;
-	if (parser(argc, argv, top_a))
-		ft_error(1);
-	return (0);
+	src_size = ft_strlen(src);
+	if (src_size < size)
+		ft_memcpy(dest, src, src_size + 1);
+	else if (size)
+	{
+		ft_memcpy(dest, src, size - 1);
+		dest[size - 1] = '\0';
+	}
+	return (ft_strlen(src));
 }
