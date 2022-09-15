@@ -28,5 +28,7 @@ int	main(int argc, char **argv)
 	if (parser(argc, argv, &top_a))
 		ft_error(1);
 	print_stack(top_a,top_b);
+	ft_printf("numbers in stack a: %d\n", count_stack(top_a));
+	ft_printf("numbers in stack b: %d\n", count_stack(top_b));
 	return (0);
 }

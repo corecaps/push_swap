@@ -84,3 +84,18 @@ int is_in_stack(t_node *top_a,int n)
 	}
 	return (0);
 }
+
+int count_stack(t_node *top)
+{
+	int	count;
+
+	count = 0;
+	if (top == NULL)
+		return (count);
+	while (top)
+	{
+		count ++;
+		top = top->next;
+	}
+	return (count);
+}

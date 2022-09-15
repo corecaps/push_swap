@@ -7,7 +7,7 @@ void print_stack(t_node *top_a,t_node *top_b)
 	int	a;
 	int	b;
 
-	ft_printf("A\t\t\t\t\t\tB\n");
+	ft_printf("A\t\t\t\t\t\t\t\tB\n");
 	ft_printf("--------------------------------------\n");
 	while (top_a || top_b)
 	{
