@@ -33,3 +33,25 @@ void print_stack(t_node *top_a,t_node *top_b)
 	}
 	ft_printf("--------------------------------------\n");
 }
+
+
+void operations_test(t_node **top_a, t_node **top_b)
+{
+	sa(top_a);
+	print_stack((*top_a), (*top_b));
+	pb(top_a, top_b);
+	pb(top_a, top_b);
+	print_stack((*top_a), (*top_b));
+	sb(top_b);
+	print_stack((*top_a), (*top_b));
+	ss(top_a, top_b);
+	print_stack((*top_a), (*top_b));
+	ra(top_a);
+	rb(top_b);
+	print_stack((*top_a), (*top_b));
+	rr(top_a,top_b);
+	print_stack((*top_a), (*top_b));
+	pa(top_a, top_b);
+	pa(top_a, top_b);
+	print_stack((*top_a), (*top_b));
+}
