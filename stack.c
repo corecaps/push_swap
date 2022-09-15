@@ -29,11 +29,15 @@ t_node	*push_bottom(t_node *top, int n)
 	t_node	*bottom;
 	t_node	*new;
 
-	// TODO check for double entry
 	if (top != NULL)
 		bottom = get_bottom(top);
 	else
 		bottom = NULL;
+	if (top != NULL)
+	{
+		if (is_in_stack(top,n))
+			return(NULL);
+	}
 	new = malloc(sizeof (t_node));
 	if (new == NULL)
 		return (NULL);
@@ -68,4 +72,15 @@ t_node	*get_bottom(t_node *top)
 		bottom = bottom->next;
 	}
 	return (bottom);
+}
+
+int is_in_stack(t_node *top_a,int n)
+{
+	while(top_a)
+	{
+		if (top_a->n == n)
+			return (1);
+		top_a = top_a->next;
+	}
+	return (0);
 }

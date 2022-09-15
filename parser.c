@@ -38,8 +38,12 @@ static int substr_parser(char *str, t_node **top_a)
 		if (result.err)
 			return (1);
 		else
+		{
 			*top_a = push_bottom(*top_a, result.n);
-		// TODO Error Handling
+			if (*top_a == NULL)
+				return (1);
+		}
+			// TODO Error Handling
 		pos ++;
 	}
 	return (0);
@@ -68,7 +72,11 @@ int	parser(int argc, char **argv, t_node **top_a)
 		}
 		result = ft_atoi(argv[pos]);
 		if (result.err == 0)
+		{
 			*top_a = push_bottom(*top_a,result.n);
+			if (*top_a == NULL)
+				return (1);
+		}
 		// TODO Error handling
 		else
 			return (1);

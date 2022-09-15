@@ -37,4 +37,5 @@ t_node	*push_bottom(t_node *top, int n);
 t_node	*get_bottom(t_node *top);
 int		pop(t_node **top);
 t_result 	ft_atoi(const char *str);
+int is_in_stack(t_node *top_a,int n);
 #endif
