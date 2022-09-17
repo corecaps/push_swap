@@ -62,6 +62,26 @@ int	pop(t_node **top)
 	return (n);
 }
 
+int pop_bottom(t_node **top)
+{
+	int		n;
+	t_node	*tmp;
+	t_node	*prev;
+
+	if ((*top) == NULL)
+		return (0);
+	tmp = *top;
+	while (tmp->next)
+	{
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	n =  tmp->n;
+	prev->next = NULL;
+	free(tmp);
+	return (n);
+}
+
 t_node	*get_bottom(t_node *top)
 {
 	t_node	*bottom;

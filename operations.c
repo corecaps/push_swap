@@ -123,19 +123,35 @@ int rr(t_node **top_a,t_node **top_b)
 	ft_printf("rr\n");
 	return (0);
 }
-/*
+
 int rra(t_node **top_a)
 {
-	t_node *bottom;
+	int	n;
 
+	n = pop_bottom(top_a);
+	*top_a = push(*top_a,n);
+	if (*top_a == NULL)
+		return (-1);
+	ft_printf("rra\n");
+	return (0);
 }
 
-int rrb(t_node *top_a,t_node *top_b)
+int rrb(t_node **top_b)
 {
+	int n;
 
+	n = pop_bottom(top_b);
+	*top_b = push(*top_b,n);
+	if (*top_b == NULL)
+		return (1);
+	ft_printf("rrb\n");
+	return (0);
 }
 
-int rrr(t_node *top_a,t_node *top_b)
+int rrr(t_node **top_a,t_node **top_b)
 {
-
-}*/
+	rra(top_a);
+	rrb(top_b);
+	ft_printf("rrr\n");
+	return (0);
+}

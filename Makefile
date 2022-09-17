@@ -15,7 +15,8 @@ CFLAGS=-Wall -Wextra -Werror -g
 CC=gcc
 PRINTF=ft_printf/libftprintf.a
 LINK=-Lft_printf -lftprintf
-SOURCE=main.c stack.c parser.c ft_atoi.c ft_strlen.c ft_strdup.c ft_memcpy.c ft_strlcpy.c ft_substr.c ft_split.c tests.c operations.c
+SOURCE=main.c stack.c parser.c ft_atoi.c ft_strlen.c ft_strdup.c ft_memcpy.c ft_strlcpy.c ft_substr.c ft_split.c tests.c
+SOURCE+=operations.c
 OBJ=$(SOURCE:.c=.o)
 RM= rm -f
 
