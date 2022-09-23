@@ -22,8 +22,10 @@ void	ft_error(int code)
 
 int	main(int argc, char **argv)
 {
-	t_node *top_a;
-	t_node *top_b;
+	t_node	*top_a;
+	t_node	*top_b;
+	int 	*array;
+	int		size;
 
 	top_a = NULL;
 	top_b = NULL;
@@ -34,5 +36,12 @@ int	main(int argc, char **argv)
 	ft_printf("numbers in stack a: %d\n", count_stack(top_a));
 	ft_printf("numbers in stack b: %d\n", count_stack(top_b));
 	operations_test(&top_a, &top_b);
+	array = stack_to_array(top_a);
+	size = count_stack(top_a);
+	sort_array(array,0, size - 1);
+	ft_printf("sorted\n");
+	for (int i=0;i < size - 1;i ++)
+		ft_printf("%d\n",array[i]);
+	ft_printf("pivot : %d", get_pivot(array,0,size-1));
 	return (0);
 }
