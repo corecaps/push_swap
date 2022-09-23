@@ -40,6 +40,9 @@ void operations_test(t_node **top_a, t_node **top_b)
 {
 	int *array;
 	int size;
+	print_stack(*top_a,*top_b);
+	ft_printf("numbers in stack a: %d\n", count_stack(*top_a));
+	ft_printf("numbers in stack b: %d\n", count_stack(*top_b));
 	sa(top_a);
 	print_stack((*top_a), (*top_b));
 	pb(top_a, top_b);
@@ -68,4 +71,5 @@ void operations_test(t_node **top_a, t_node **top_b)
 	for (int i=0;i < size - 1;i ++)
 		ft_printf("%d\n",array[i]);
 	ft_printf("pivot : %d\n", get_pivot(array,0,size-1));
+	free(array);
 }

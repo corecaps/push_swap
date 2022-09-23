@@ -30,10 +30,8 @@ int	main(int argc, char **argv)
 	(void) top_b;
 	if (parser(argc, argv, &top_a))
 		ft_error(1);
-	print_stack(top_a,top_b);
-	ft_printf("numbers in stack a: %d\n", count_stack(top_a));
-	ft_printf("numbers in stack b: %d\n", count_stack(top_b));
 	operations_test(&top_a, &top_b);
-
+	clean_memory(top_a);
+	clean_memory(top_b);
 	return (0);
 }
