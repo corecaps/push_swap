@@ -77,5 +77,5 @@ void sort_array(int *array,int start,int end)
 int		get_pivot(int *array,int start,int end)
 {
 	sort_array(array,start,end);
-	return (array[(end - start)/2]);
+	return (array[((end - start) / 2) + start]);
 }
