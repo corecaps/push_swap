@@ -56,4 +56,5 @@ int			rrb(t_node **top_b);
 int			rrr(t_node **top_a,t_node **top_b);
 void		print_stack(t_node *top_a,t_node *top_b);
 void		clean_memory(t_node *stack);
+int			sort(t_node **top_a,t_node **top_b);
 #endif

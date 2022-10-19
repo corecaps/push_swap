@@ -27,7 +27,8 @@ int	main(int argc, char **argv)
 	top_b = NULL;
 	if (parser(argc, argv, &top_a))
 		ft_error(1);
-	operations_test(&top_a, &top_b);
+	sort(&top_a,&top_b);
+	//	operations_test(&top_a, &top_b);
 	clean_memory(top_a);
 	clean_memory(top_b);
 	return (0);

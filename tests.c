@@ -2,6 +2,8 @@
 // Created by jgarcia on 9/14/22.
 //
 #include "push_swap.h"
+#include <stdio.h>
+
 void print_stack(t_node *top_a,t_node *top_b)
 {
 	int	a;
@@ -15,21 +17,21 @@ void print_stack(t_node *top_a,t_node *top_b)
 		{
 			a = top_a->n;
 			top_a = top_a->next;
-			ft_printf("%d\t\t\t\t\t",a);
+			printf("%d\t\t\t\t\t",a);
 		}
 		else
 		{
-			ft_printf("(empty)\t\t\t\t\t");
+			printf("(empty)\t\t\t\t\t");
 		}
 		if (top_b)
 		{
 			b = top_b->n;
 			top_b = top_b->next;
-			ft_printf("%d\n",b);
+			printf("%d\n",b);
 		}
 		else
 		{
-			ft_printf("(empty)\n");
+			printf("(empty)\n");
 		}
 	}
 	ft_printf("--------------------------------------\n");
