@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-
-
 void	ft_error(int code)
 {
 	ft_printf("Parsing Error");
@@ -27,7 +25,6 @@ int	main(int argc, char **argv)
 
 	top_a = NULL;
 	top_b = NULL;
-	(void) top_b;
 	if (parser(argc, argv, &top_a))
 		ft_error(1);
 	operations_test(&top_a, &top_b);

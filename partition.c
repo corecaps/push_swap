@@ -6,7 +6,7 @@
 
 
 
-int *stack_to_array(t_node *stack)
+int *stack_to_array(t_node *stack, int n)
 {
 	int 	*array;
 	int 	size;
@@ -24,7 +24,7 @@ int *stack_to_array(t_node *stack)
 		return (NULL);
 	current_node = stack;
 	i = 0;
-	while (current_node)
+	while (i < n && current_node)
 	{
 		array[i] = current_node->n;
 		i ++;
@@ -32,7 +32,7 @@ int *stack_to_array(t_node *stack)
 	}
 	return (array);
 }
-void swap(int *a, int *b)
+static void swap(int *a, int *b)
 {
 	int buf;
 
@@ -41,7 +41,7 @@ void swap(int *a, int *b)
 	*b = buf;
 }
 
-int	partition(int *array,int start,int end)
+static int	partition(int *array,int start,int end)
 {
 	int	pivot;
 	int l_pos;
@@ -63,7 +63,7 @@ int	partition(int *array,int start,int end)
 	return (l_pos + 1);
 }
 
-void sort_array(int *array,int start,int end)
+ void sort_array(int *array,int start,int end)
 {
 	int split_index;
 	if (start < end)

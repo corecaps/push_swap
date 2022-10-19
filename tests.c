@@ -64,8 +64,8 @@ void operations_test(t_node **top_a, t_node **top_b)
 	pa(top_a, top_b);
 	pa(top_a,top_b);
 	print_stack((*top_a), (*top_b));
-	array = stack_to_array(*top_a);
 	size = count_stack(*top_a);
+	array = stack_to_array(*top_a,size);
 	sort_array(array,0, size - 1);
 	ft_printf("=========================================================\nsorted array\n");
 	for (int i=0;i < size - 1;i ++)
