@@ -24,6 +24,18 @@ typedef struct s_result
 	int n;
 	int err;
 } t_result;
+typedef struct s_chunk
+{
+	t_node	*stack;
+	int		n;
+	int		high_pivot;
+	int 	current_pivot;
+}t_chunk;
+typedef struct s_partition
+{
+	t_chunk	high_chunk;
+	t_chunk	low_chunk;
+} t_partition;
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
@@ -56,5 +68,6 @@ int			rrb(t_node **top_b);
 int			rrr(t_node **top_a,t_node **top_b);
 void		print_stack(t_node *top_a,t_node *top_b);
 void		clean_memory(t_node *stack);
-int			sort(t_node **top_a,t_node **top_b);
+int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
+int			sort(t_chunk current_chunk, t_node **top_a, t_node **top_b);
 #endif

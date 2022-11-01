@@ -22,13 +22,20 @@ int	main(int argc, char **argv)
 {
 	t_node	*top_a;
 	t_node	*top_b;
+	t_chunk *initial_chunk;
 
 	top_a = NULL;
 	top_b = NULL;
 	if (parser(argc, argv, &top_a))
 		ft_error(1);
-	sort(&top_a,&top_b);
+	initial_chunk = malloc (sizeof(t_chunk));
+	if (initial_chunk == NULL)
+		ft_error(1);
+	initial_chunk->stack = &top_a;
+	initial_chunk->n = count_stack(top_a);
+	sort(*initial_chunk,&top_a,&top_b);
 	//	operations_test(&top_a, &top_b);
+	free(initial_chunk);
 	clean_memory(top_a);
 	clean_memory(top_b);
 	return (0);
