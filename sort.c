@@ -213,7 +213,7 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 			else
 			{
 				pa(top_a,top_b);
-				rb(top_b);
+				ra(top_a);
 			}
 			hi_chunk.n ++;
 		}
@@ -232,6 +232,19 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 	result.low_chunk = lo_chunk;
 	return (result);
 }
+#include <stdio.h>
+void print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b)
+{
+	t_node *pos = chunk.stack;
+	int n = chunk.n;
+	int i = 0;
+	printf("A:\t %p\tB:\t %p\tCurrent chunk :\t stack: %p\t n:%d\n",top_a,top_b,pos,n);
+	while (i < n) {
+		printf("%d\n",pos->n);
+		pos = pos->next;
+		i ++;
+	}
+}
 int sort(t_chunk current_chunk, t_node **top_a, t_node **top_b)
 {
 	int *array;
@@ -242,8 +255,10 @@ int sort(t_chunk current_chunk, t_node **top_a, t_node **top_b)
 	array = stack_to_array(*top_a,current_chunk.n);
 	current_chunk.current_pivot = get_pivot(array,0, current_chunk.n-1);
 //	ft_printf("pivot :\t%d\n",current_chunk.current_pivot);
+	print_stack(*top_a,*top_b);
+	print_chunk(current_chunk,*top_a,*top_b);
 	result = stack_partition(current_chunk,top_a,top_b);
-//	print_stack(*top_a,*top_b);
+
 	sort(result.low_chunk,top_a,top_b);
 //	print_stack(*top_a,*top_b);
 	sort(result.high_chunk,top_a,top_b);
