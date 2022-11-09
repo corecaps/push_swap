@@ -169,6 +169,7 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 	int sens;
 	int i;
 
+
 	lo_chunk.stack = current_chunk.stack;
 	if (current_chunk.stack == *top_a)
 	{
@@ -184,13 +185,13 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 	lo_chunk.n = 0;
 	hi_chunk.n = 0;
 	i = 0;
-	if (current_chunk.n <= 1)
+	if (current_chunk.n <= 1 || current_chunk.stack == NULL)
 	{
 		result.high_chunk = hi_chunk;
 		result.low_chunk = lo_chunk;
 		return (result);
 	}
-	while (i < current_chunk.n)
+	while (i < current_chunk.n && pos)
 	{
 		// TODO : invert condition to shorten code
 		tmp = pos->next;
