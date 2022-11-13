@@ -119,3 +119,8 @@ int count_stack(t_node *top)
 	}
 	return (count);
 }
+
+int peek(t_node *top)
+{
+	return (top->n);
+}

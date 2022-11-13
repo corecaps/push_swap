@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	initial_chunk = malloc (sizeof(t_chunk));
 	if (initial_chunk == NULL)
 		ft_error(1);
-	initial_chunk->stack = top_a;
+	initial_chunk->stack = &top_a;
 	initial_chunk->n = count_stack(top_a);
 	sort(*initial_chunk,&top_a,&top_b);
 	//	operations_test(&top_a, &top_b);

@@ -164,69 +164,75 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 	t_chunk lo_chunk;
 	t_chunk hi_chunk;
 	t_partition result;
-	t_node *tmp;
-	t_node *pos;
 	int sens;
 	int i;
 
-
-	lo_chunk.stack = current_chunk.stack;
-	if (current_chunk.stack == *top_a)
+	if (current_chunk.stack == top_a)
 	{
-		hi_chunk.stack = *top_b;
 		sens = 0;
 	}
 	else
 	{
-		lo_chunk.stack = *top_a;
 		sens = 1;
 	}
-	pos = current_chunk.stack;
-	lo_chunk.n = 0;
-	hi_chunk.n = 0;
+	lo_chunk.n = (current_chunk.n / 2) - 1;
+	if (current_chunk.n % 2 == 0)
+		hi_chunk.n = (current_chunk.n / 2);
+	else
+		hi_chunk.n = (current_chunk.n / 2) + 1;
 	i = 0;
-	if (current_chunk.n <= 1 || current_chunk.stack == NULL)
+	if (current_chunk.n <= 1 || *current_chunk.stack == NULL)
 	{
 		result.high_chunk = hi_chunk;
 		result.low_chunk = lo_chunk;
 		return (result);
 	}
-	while (i < current_chunk.n && pos)
+	while (i < current_chunk.n && *current_chunk.stack)
 	{
 		// TODO : invert condition to shorten code
-		tmp = pos->next;
-		if (pos->n > current_chunk.current_pivot)
+		if (peek(*current_chunk.stack) > current_chunk.current_pivot)
 		{
-			if (sens == 0)
+			ft_printf("N:%d\tPivot:%d\n",peek(*current_chunk.stack),current_chunk.current_pivot);
+			if (sens == 0) //sens 0 : top_a 1: top_b
 				pb(top_a,top_b);
 			else
 				pa(top_a,top_b);
-			hi_chunk.n ++;
 		}
-		else if (pos->n == current_chunk.current_pivot)
+		else if (peek(*current_chunk.stack) == current_chunk.current_pivot)
 		{
-			if (sens == 0)
+			ft_printf("N:%d\tPivot:%d\n",peek(*current_chunk.stack),current_chunk.current_pivot);
+			if (i == current_chunk.n - 1)
+				break ;
+			if (sens == 0) //sens 0 : top_a 1: top_b
 			{
-				pb(top_a,top_b);
-				rb(top_b);
+				sa(top_a);
 			}
 			else
 			{
-				pa(top_a,top_b);
-				ra(top_a);
+				sb(top_b);
 			}
-			hi_chunk.n ++;
+			i --;
 		}
 		else
 		{
-			if (sens == 0)
+			ft_printf("N:%d\tPivot:%d\n",peek(*current_chunk.stack),current_chunk.current_pivot);
+			if (sens == 0) //sens 0 : top_a 1: top_b
 				ra(top_a);
 			else
 				rb(top_b);
-			lo_chunk.n ++;
 		}
-		pos = tmp;
 		i ++;
+	}
+	if (sens == 0) //sens 0 : top_a 1: top_b
+		ra(top_a);
+	else
+		rb(top_b);
+	if (sens == 1) { //sens 0 : top_a 1: top_b
+		hi_chunk.stack = top_a;
+		lo_chunk.stack = top_b;
+	} else {
+		hi_chunk.stack = top_b;
+		lo_chunk.stack = top_a;
 	}
 	result.high_chunk = hi_chunk;
 	result.low_chunk = lo_chunk;
@@ -235,7 +241,9 @@ t_partition stack_partition(t_chunk current_chunk, t_node **top_a, t_node **top_
 #include <stdio.h>
 void print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b)
 {
-	t_node *pos = chunk.stack;
+	if (chunk.stack == NULL)
+		return ;
+	t_node *pos = *chunk.stack;
 	int n = chunk.n;
 	int i = 0;
 	printf("A:\t %p\tB:\t %p\tCurrent chunk :\t stack: %p\t n:%d\n",top_a,top_b,pos,n);
@@ -254,20 +262,22 @@ int sort(t_chunk current_chunk, t_node **top_a, t_node **top_b)
 		return (0);
 	array = stack_to_array(*top_a,current_chunk.n);
 	current_chunk.current_pivot = get_pivot(array,0, current_chunk.n-1);
-//	ft_printf("pivot :\t%d\n",current_chunk.current_pivot);
+	ft_printf("pivot :\t%d\n",current_chunk.current_pivot);
 	print_stack(*top_a,*top_b);
 	print_chunk(current_chunk,*top_a,*top_b);
 	result = stack_partition(current_chunk,top_a,top_b);
 
 	sort(result.low_chunk,top_a,top_b);
+	// push_back
 //	print_stack(*top_a,*top_b);
 	sort(result.high_chunk,top_a,top_b);
+	// push_back
+	//	print_stack(*top_a,*top_b);
 //	print_stack(*top_a,*top_b);
-//	print_stack(*top_a,*top_b);
-//	if (is_sorted(*top_a))
-//		ft_printf("sorted\n");
-//	else
-//		ft_printf("not sorted\n");
+	if (is_sorted(*top_a))
+		ft_printf("sorted\n");
+	else
+		ft_printf("not sorted\n");
 
 	free (array);
 	return (0);

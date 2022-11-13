@@ -26,7 +26,7 @@ typedef struct s_result
 } t_result;
 typedef struct s_chunk
 {
-	t_node	*stack;
+	t_node	**stack;
 	int		n;
 	int		high_pivot;
 	int 	current_pivot;
@@ -52,7 +52,8 @@ int			pop(t_node **top);
 int			pop_bottom(t_node **top);
 int			is_in_stack(t_node *top_a,int n);
 int			count_stack(t_node *top);
-int *stack_to_array(t_node *stack, int n);
+int			peek(t_node *top);
+int 		*stack_to_array(t_node *stack, int n);
 void		sort_array(int *array,int start,int end);
 int			get_pivot(int *array,int start,int end);
 int			sa(t_node **top_a);
