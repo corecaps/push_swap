@@ -14,6 +14,11 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
+typedef enum e_stack
+{
+	STACK_A,
+	STACK_B
+} t_stack;
 typedef struct s_node
 {
 	int n;
@@ -26,9 +31,8 @@ typedef struct s_result
 } t_result;
 typedef struct s_chunk
 {
-	t_node	**stack;
+	t_stack	stack;
 	int		n;
-	int		high_pivot;
 	int 	current_pivot;
 }t_chunk;
 typedef struct s_partition
