@@ -23,7 +23,7 @@ static int space_in_string(char *str)
 	return (0);
 }
 
-static int substr_parser(char *str, t_node **top_a)
+static int substr_parser(char *str, t_node **stacks)
 {
 	char		**args;
 	int			pos;
@@ -38,8 +38,8 @@ static int substr_parser(char *str, t_node **top_a)
 			return (1);
 		else
 		{
-			*top_a = push_bottom(*top_a, result.n);
-			if (*top_a == NULL)
+			*stacks = push_bottom(stacks[STACK_A], result.n);
+			if (stacks[STACK_A] == NULL)
 				return (1);
 		}
 			// TODO Error Handling
@@ -48,7 +48,7 @@ static int substr_parser(char *str, t_node **top_a)
 	return (0);
 }
 
-int	parser(int argc, char **argv, t_node **top_a)
+int	parser(int argc, char **argv, t_node **stacks)
 {
 	int pos;
 	t_result result;
@@ -60,7 +60,7 @@ int	parser(int argc, char **argv, t_node **top_a)
 	{
 		if (space_in_string(argv[pos]))
 		{
-			if (substr_parser(argv[pos], top_a))
+			if (substr_parser(argv[pos], stacks))
 				return (1);
 			else
 			{
@@ -71,8 +71,8 @@ int	parser(int argc, char **argv, t_node **top_a)
 		result = ft_atoi(argv[pos]);
 		if (result.err == 0)
 		{
-			*top_a = push_bottom(*top_a,result.n);
-			if (*top_a == NULL)
+			*stacks = push_bottom(stacks[STACK_A], result.n);
+			if (*stacks == NULL)
 				return (1);
 		}
 		// TODO Error handling

@@ -4,154 +4,154 @@
 
 #include "push_swap.h"
 
-int sa(t_node **top_a)
+int sa(t_node **stacks)
 {
 	int a;
 	int b;
 
-	if (count_stack(*top_a) < 2)
+	if (count_stack(stacks[STACK_A]) < 2)
 		return (0);
-	if (*top_a == NULL)
+	if (stacks[STACK_A] == NULL)
 		return (-1);
-	a = pop(top_a);
-	b = pop(top_a);
-	*top_a = push(*top_a,a);
-	if (*top_a == NULL)
+	a = pop(&stacks[STACK_A]);
+	b = pop(&stacks[STACK_A]);
+	stacks[STACK_A] = push(stacks[STACK_A], a);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
-	*top_a = push(*top_a,b);
-	if (*top_a == NULL)
+	stacks[STACK_A] = push(stacks[STACK_A], b);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
 	ft_printf("sa\n");
 	return (0);
 }
 
-int sb(t_node **top_b)
+int sb(t_node **stacks)
 {
 	int a;
 	int b;
 
-	if (top_b == NULL)
+	if (stacks[STACK_B] == NULL)
 		return (-1);
-	if (count_stack(*top_b) < 2)
+	if (count_stack(stacks[STACK_B]) < 2)
 		return (0);
-	a = pop(top_b);
-	b = pop(top_b);
-	*top_b = push(*top_b,a);
-	if (*top_b == NULL)
+	a = pop(&stacks[STACK_A]);
+	b = pop(&stacks[STACK_A]);
+	stacks[STACK_B] = push(stacks[STACK_B], a);
+	if (stacks[STACK_B] == NULL)
 		return (-1);
-	*top_b = push(*top_b,b);
-	if (*top_b == NULL)
+	stacks[STACK_B] = push(stacks[STACK_B], b);
+	if (stacks[STACK_B] == NULL)
 		return (-1);
 	ft_printf("sb\n");
 	return (0);
 }
 
-int ss(t_node **top_a,t_node **top_b)
+int ss(t_node **stacks)
 {
-	if (sa(top_a) != 0)
+	if (sa(stacks) != 0)
 		return (-1);
-	if (sb(top_b) != 0)
+	if (sb(stacks) != 0)
 		return (-1);
 	ft_printf("ss\n");
 	return (0);
 }
 
-int pa(t_node **top_a,t_node **top_b)
+int pa(t_node **stacks)
 {
 	int a;
 
-	if (*top_b == NULL)
+	if (stacks[STACK_B] == NULL)
 		return (-1);
-	a = pop(top_b);
-	*top_a = push(*top_a,a);
-	if (*top_a == NULL)
+	a = pop(&stacks[STACK_B]);
+	stacks[STACK_A] = push(stacks[STACK_A],a);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
 	ft_printf("pa\n");
 	return (0);
 }
 
-int pb(t_node **top_a,t_node **top_b)
+int pb(t_node **stacks)
 {
 	int a;
 
-	if (*top_a == NULL)
+	if (stacks[STACK_A] == NULL)
 		return (-1);
-	a = pop(top_a);
-	*top_b = push(*top_b,a);
-	if (*top_b == NULL)
+	a = pop(&stacks[STACK_A]);
+	stacks[STACK_B] = push(stacks[STACK_B],a);
+	if (stacks[STACK_B] == NULL)
 		return (-1);
 	ft_printf("pb\n");
 	return (0);
 }
 
-int ra(t_node **top_a)
+int ra(t_node **stacks)
 {
 	int a;
 
-	if (top_a == NULL)
+	if (stacks[STACK_A] == NULL)
 		return (-1);
-	a = pop(top_a);
-	*top_a = push_bottom(*top_a, a);
-	if (*top_a == NULL)
+	a = pop(&stacks[STACK_A]);
+	stacks[STACK_A] = push_bottom(stacks[STACK_A], a);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
 	ft_printf("ra\n");
 	return (0);
 }
 
-int rb(t_node **top_b)
+int rb(t_node **stacks)
 {
 	int a;
 
-	if (top_b == NULL)
+	if (stacks[STACK_B] == NULL)
 		return (-1);
-	a = pop(top_b);
-	*top_b = push_bottom(*top_b, a);
-	if (*top_b == NULL)
+	a = pop(&stacks[STACK_B]);
+	stacks[STACK_B] = push_bottom(stacks[STACK_B], a);
+	if (stacks[STACK_B] == NULL)
 		return (-1);
 	ft_printf("rb\n");
 	return (0);
 }
 
-int rr(t_node **top_a,t_node **top_b)
+int rr(t_node **stacks)
 {
-	ra(top_a);
-	if (*top_a == NULL)
+	ra(stacks);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
-	rb(top_b);
-	if (*top_b == NULL)
+	rb(stacks);
+	if (stacks[STACK_B] == NULL)
 		return (-1);
 	ft_printf("rr\n");
 	return (0);
 }
 
-int rra(t_node **top_a)
+int rra(t_node **stacks)
 {
 	int	n;
 
-	n = pop_bottom(top_a);
-	*top_a = push(*top_a,n);
-	if (*top_a == NULL)
+	n = pop_bottom(&stacks[STACK_A]);
+	stacks[STACK_A] = push(stacks[STACK_A],n);
+	if (stacks[STACK_A] == NULL)
 		return (-1);
 	ft_printf("rra\n");
 	return (0);
 }
 
-int rrb(t_node **top_b)
+int rrb(t_node **stacks)
 {
 	int n;
 
-	n = pop_bottom(top_b);
-	*top_b = push(*top_b,n);
-	if (*top_b == NULL)
+	n = pop_bottom(&stacks[STACK_B]);
+	stacks[STACK_B] = push(stacks[STACK_B],n);
+	if (stacks[STACK_B] == NULL)
 		return (1);
 	ft_printf("rrb\n");
 	return (0);
 }
 
-int rrr(t_node **top_a,t_node **top_b)
+int rrr(t_node **stacks)
 {
-	rra(top_a);
-	rrb(top_b);
+	rra(stacks);
+	rrb(stacks);
 	ft_printf("rrr\n");
 	return (0);
 }

@@ -20,23 +20,22 @@ void	ft_error(int code)
 
 int	main(int argc, char **argv)
 {
-	t_node	*top_a;
-	t_node	*top_b;
+	t_node	*stacks[2];
 	t_chunk *initial_chunk;
 
-	top_a = NULL;
-	top_b = NULL;
-	if (parser(argc, argv, &top_a))
+	stacks[STACK_A] = NULL;
+	stacks[STACK_B] = NULL;
+	if (parser(argc, argv, stacks))
 		ft_error(1);
 	initial_chunk = malloc (sizeof(t_chunk));
 	if (initial_chunk == NULL)
 		ft_error(1);
 	initial_chunk->stack = STACK_A;
-	initial_chunk->n = count_stack(top_a);
-	sort(*initial_chunk,&top_a,&top_b);
+	initial_chunk->n = count_stack(stacks[STACK_A]);
+	sort(*initial_chunk,stacks);
 	//	operations_test(&top_a, &top_b);
 	free(initial_chunk);
-	clean_memory(top_a);
-	clean_memory(top_b);
+	clean_memory(stacks[STACK_A]);
+	clean_memory(stacks[STACK_B]);
 	return (0);
 }
