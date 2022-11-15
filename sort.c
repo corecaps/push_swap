@@ -249,27 +249,6 @@ t_partition stack_partition(t_chunk current_chunk, t_node **stacks)
 	return (res);
 }
 
-void print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b)
-{
-	t_node *pos;
-	if (chunk.stack < STACK_A || chunk.stack > STACK_B)
-		return ;
-	if (chunk.stack == STACK_A)
-		pos = top_a;
-	else
-		pos = top_b;
-	int n = chunk.n;
-	int i = 0;
-	ft_printf("\n================\n");
-	ft_printf("A:\t %p\tB:\t %p\tCurrent chunk :\t stack: %p\t n:%d\n",top_a,top_b,pos,n);
-	while (i < n) {
-		ft_printf("%d\t",pos->n);
-		pos = pos->next;
-		i ++;
-	}
-	ft_printf("\n================\n");
-}
-
 void push_back(t_chunk current,t_node **stacks)
 {
 	int i;

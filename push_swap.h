@@ -47,7 +47,6 @@ char		*ft_strdup(char *src);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 t_result 	ft_atoi(const char *str);
 char		**ft_split(const char *s, char c);
-void		operations_test(t_node **top_a, t_node **top_b);
 int			parser(int argc, char **argv, t_node **stacks);
 t_node		*push(t_node *top, int n);
 t_node		*push_bottom(t_node *top, int n);
@@ -71,8 +70,12 @@ int			rr(t_node **stacks);
 int			rra(t_node **stacks);
 int			rrb(t_node **stacks);
 int			rrr(t_node **stacks);
+//debug
 void		print_stack(t_node *top_a,t_node *top_b);
-void		clean_memory(t_node *stack);
+void		print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b);
+void		operations_test(t_node **top_a, t_node **top_b);
 int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
+//end debug
+void		clean_memory(t_node *stack);
 int			sort(t_chunk current_chunk, t_node **stacks);
 #endif
