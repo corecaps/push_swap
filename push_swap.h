@@ -77,5 +77,5 @@ void		operations_test(t_node **top_a, t_node **top_b);
 int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
 //end debug
 void		clean_memory(t_node *stack);
-int			sort(t_chunk current_chunk, t_node **stacks);
+int			sort(t_node **stacks);
 #endif

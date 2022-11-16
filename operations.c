@@ -34,8 +34,8 @@ int sb(t_node **stacks)
 		return (-1);
 	if (count_stack(stacks[STACK_B]) < 2)
 		return (0);
-	a = pop(&stacks[STACK_A]);
-	b = pop(&stacks[STACK_A]);
+	a = pop(&stacks[STACK_B]);
+	b = pop(&stacks[STACK_B]);
 	stacks[STACK_B] = push(stacks[STACK_B], a);
 	if (stacks[STACK_B] == NULL)
 		return (-1);

@@ -32,8 +32,8 @@ int	main(int argc, char **argv)
 		ft_error(1);
 	initial_chunk->stack = STACK_A;
 	initial_chunk->n = count_stack(stacks[STACK_A]);
-	sort(*initial_chunk,stacks);
-	//	operations_test(&top_a, &top_b);
+	sort(stacks);
+//	print_stack(stacks[STACK_A],stacks[STACK_B]);//	operations_test(&top_a, &top_b);
 	free(initial_chunk);
 	clean_memory(stacks[STACK_A]);
 	clean_memory(stacks[STACK_B]);

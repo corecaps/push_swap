@@ -59,40 +59,40 @@ void print_stack(t_node *top_a,t_node *top_b)
 }
 
 
-void operations_test(t_node **top_a, t_node **top_b)
-{
-	int *array;
-	int size;
-	print_stack(*top_a,*top_b);
-	ft_printf("numbers in stack a: %d\n", count_stack(*top_a));
-	ft_printf("numbers in stack b: %d\n", count_stack(*top_b));
-	sa(top_a);
-	print_stack((*top_a), (*top_b));
-	pb(top_a, top_b);
-	pb(top_a, top_b);
-	pb(top_a, top_b);
-	print_stack((*top_a), (*top_b));
-	sb(top_b);
-	print_stack((*top_a), (*top_b));
-	ss(top_a, top_b);
-	print_stack((*top_a), (*top_b));
-	ra(top_a);
-	rb(top_b);
-	print_stack((*top_a), (*top_b));
-	rr(top_a,top_b);
-	print_stack((*top_a), (*top_b));
-	rrr(top_a,top_b);
-	print_stack((*top_a), (*top_b));
-	pa(top_a, top_b);
-	pa(top_a, top_b);
-	pa(top_a,top_b);
-	print_stack((*top_a), (*top_b));
-	size = count_stack(*top_a);
-	array = stack_to_array(*top_a,size);
-	sort_array(array,0, size - 1);
-	ft_printf("=========================================================\nsorted array\n");
-	for (int i=0;i < size - 1;i ++)
-		ft_printf("%d\n",array[i]);
-	ft_printf("pivot : %d\n", get_pivot(array,0,size-1));
-	free(array);
-}
+//void operations_test(t_node **top_a, t_node **top_b)
+//{
+//	int *array;
+//	int size;
+//	print_stack(*top_a,*top_b);
+//	ft_printf("numbers in stack a: %d\n", count_stack(*top_a));
+//	ft_printf("numbers in stack b: %d\n", count_stack(*top_b));
+//	sa(top_a);
+//	print_stack((*top_a), (*top_b));
+//	pb(top_a, top_b);
+//	pb(top_a, top_b);
+//	pb(top_a, top_b);
+//	print_stack((*top_a), (*top_b));
+//	sb(top_b);
+//	print_stack((*top_a), (*top_b));
+//	ss(top_a, top_b);
+//	print_stack((*top_a), (*top_b));
+//	ra(top_a);
+//	rb(top_b);
+//	print_stack((*top_a), (*top_b));
+//	rr(top_a,top_b);
+//	print_stack((*top_a), (*top_b));
+//	rrr(top_a,top_b);
+//	print_stack((*top_a), (*top_b));
+//	pa(top_a, top_b);
+//	pa(top_a, top_b);
+//	pa(top_a,top_b);
+//	print_stack((*top_a), (*top_b));
+//	size = count_stack(*top_a);
+//	array = stack_to_array(*top_a,size);
+//	sort_array(array,0, size - 1);
+//	ft_printf("=========================================================\nsorted array\n");
+//	for (int i=0;i < size - 1;i ++)
+//		ft_printf("%d\n",array[i]);
+//	ft_printf("pivot : %d\n", get_pivot(array,0,size-1));
+//	free(array);
+//}
