@@ -1,0 +1,1466 @@
+ra
+pb
+ra
+pb
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+ra
+pb
+pb
+ra
+pb
+pb
+pb
+ra
+ra
+pb
+pb
+ra
+pb
+pb
+pb
+ra
+pb
+pb
+ra
+A								B
+--------------------------------------
+--------------------------------------
+pb
+ra
+pb
+pb
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+ra
+ra
+pb
+ra
+ra
+A								B
+--------------------------------------
+--------------------------------------
+pb
+ra
+ra
+pb
+pb
+pb
+ra
+ra
+ra
+A								B
+--------------------------------------
+--------------------------------------
+ra
+ra
+pb
+ra
+pb
+A								B
+--------------------------------------
+--------------------------------------
+ra
+pb
+ra
+A								B
+--------------------------------------
+--------------------------------------
+sa
+======================================================
+New call to pushback:	 Stack:b
+0 : n : 1
+1 : n : 2
+2 : n : 4
+3 : n : 7
+4 : n : 14
+
+Pushing Back chunk of size :1
+state of chunk stack
+0:	n->2
+1:	n->4
+2:	n->7
+3:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+pa
+Pushing Back chunk of size :2
+state of chunk stack
+0:	n->4
+1:	n->7
+2:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+sb
+pa
+pa
+Pushing Back chunk of size :4
+state of chunk stack
+0:	n->7
+1:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	79
+origine stack B
+79 is lesser than 79 rotate stack B
+rb
+origine stack B
+80 is higher than 79 pushing to A
+pa
+origine stack B
+75 is lesser than 79 rotate stack B
+rb
+origine stack B
+81 is higher than 79 pushing to A
+pa
+sa
+i have pushed 2 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+rrb
+rrb
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+1 : n : 7
+2 : n : 14
+
+Pushing Back chunk of size :2
+state of chunk stack
+0:	n->7
+1:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+pa
+pa
+Pushing Back chunk of size :7
+state of chunk stack
+0:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	64
+origine stack B
+56 is lesser than 64 rotate stack B
+rb
+origine stack B
+64 is lesser than 64 rotate stack B
+rb
+origine stack B
+74 is higher than 64 pushing to A
+pa
+origine stack B
+60 is lesser than 64 rotate stack B
+rb
+origine stack B
+67 is higher than 64 pushing to A
+pa
+origine stack B
+57 is lesser than 64 rotate stack B
+rb
+origine stack B
+69 is higher than 64 pushing to A
+pa
+======================================================
+New call to pushback:	 Stack:a
+0 : n : 3
+
+Pushing Back chunk of size :3
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	69
+origine stack A
+69 is higher than 69 rotate stack A
+ra
+origine stack A
+67 is less than 69 pushing to B
+pb
+origine stack A
+74 is higher than 69 rotate stack A
+ra
+i have pushed 1 elements to stack b
+A								B
+--------------------------------------
+--------------------------------------
+rra
+rra
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+
+Pushing Back chunk of size :2
+state of chunk stack
+A								B
+--------------------------------------
+69					40
+81					26
+57					47
+67					14
+100					11
+60					17
+74					12
+64					49
+92					53
+75					48
+80					54
+79					36
+91					16
+56					29
+97					(empty)
+85					(empty)
+81					56
+100					64
+92					74
+75					60
+80					67
+79					57
+91					69
+97					40
+85					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+100					79
+92					80
+91					75
+97					81
+85					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+100					85
+92					91
+97					79
+(empty)					80
+(empty)					75
+(empty)					81
+(empty)					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+100					92
+97					85
+(empty)					91
+(empty)					79
+(empty)					80
+(empty)					75
+(empty)					81
+(empty)					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+97					92
+100					85
+(empty)					91
+(empty)					79
+(empty)					80
+(empty)					75
+(empty)					81
+(empty)					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+92					85
+97					91
+100					79
+(empty)					80
+(empty)					75
+(empty)					81
+(empty)					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+85					79
+91					80
+92					75
+97					81
+100					56
+(empty)					64
+(empty)					74
+(empty)					60
+(empty)					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+80					56
+81					64
+85					74
+91					60
+92					67
+97					57
+100					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+(empty)					79
+(empty)					75
+80					79
+81					75
+85					56
+91					64
+92					74
+97					60
+100					67
+(empty)					57
+(empty)					69
+(empty)					40
+(empty)					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+75					56
+79					64
+80					74
+81					60
+85					67
+91					57
+92					69
+97					40
+100					26
+(empty)					47
+(empty)					14
+(empty)					11
+(empty)					17
+(empty)					12
+(empty)					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+69					40
+67					26
+74					47
+75					14
+79					11
+80					17
+81					12
+85					49
+91					53
+92					48
+97					54
+100					36
+(empty)					16
+(empty)					29
+(empty)					56
+(empty)					64
+(empty)					60
+(empty)					57
+75					67
+79					40
+80					26
+81					47
+85					14
+91					11
+92					17
+97					12
+100					49
+69					53
+74					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+(empty)					56
+(empty)					64
+(empty)					60
+(empty)					57
+69					67
+74	--------------------------------------
+pb
+pb
+============================================================
+pa
+pa
+pa
+i have pushed 3 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+rrb
+rrb
+rrb
+rrb
+Still 4 elements in chunk
+chunk stack state
+0 : n : 4
+1 : n : 14
+
+Pushing Back chunk of size :4
+state of chunk stack
+0:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	57
+origine stack B
+56 is lesser than 57 rotate stack B
+rb
+origine stack B
+64 is higher than 57 pushing to A
+pa
+origine stack B
+60 is higher than 57 pushing to A
+pa
+origine stack B
+57 is lesser than 57 rotate stack B
+rb
+i have pushed 2 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+rrb
+rrb
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+1 : n : 14
+
+Pushing Back chunk of size :2
+state of chunk stack
+0:	n->14
+A								B
+--------------------------------------
+--------------------------------------
+sb
+pa
+pa
+Pushing Back chunk of size :14
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	29
+origine stack B
+40 is higher than 29 pushing to A
+pa
+origine stack B
+26 is lesser than 29 rotate stack B
+rb
+origine stack B
+47 is higher than 29 pushing to A
+pa
+origine stack B
+14 is lesser than 29 rotate stack B
+rb
+origine stack B
+11 is lesser than 29 rotate stack B
+rb
+origine stack B
+17 is lesser than 29 rotate stack B
+rb
+origine stack B
+12 is lesser than 29 rotate stack B
+rb
+origine stack B
+49 is higher than 29 pushing to A
+pa
+origine stack B
+53 is higher than 29 pushing to A
+pa
+origine stack B
+48 is higher than 29 pushing to A
+pa
+origine stack B
+54 is higher than 29 pushing to A
+pa
+origine stack B
+36 is higher than 29 pushing to A
+pa
+origine stack B
+16 is lesser than 29 rotate stack B
+rb
+origine stack B
+29 is lesser than 29 rotate stack B
+rb
+======================================================
+New call to pushback:	 Stack:a
+0 : n : 7
+
+Pushing Back chunk of size :7
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	48
+origine stack A
+36 is less than 48 pushing to B
+pb
+origine stack A
+54 is higher than 48 rotate stack A
+ra
+origine stack A
+48 is higher than 48 rotate stack A
+ra
+origine stack A
+53 is higher than 48 rotate stack A
+ra
+origine stack A
+49 is higher than 48 rotate stack A
+ra
+origine stack A
+47 is less than 48 pushing to B
+pb
+origine stack A
+40 is less than 48 pushing to B
+pb
+======================================================
+New call to pushback:	 Stack:b
+0 : n : 3
+
+Pushing Back chunk of size :3
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	40
+origine stack B
+40 is lesser than 40 rotate stack B
+rb
+origine stack B
+47 is higher than 40 pushing to A
+pa
+origine stack B
+36 is lesser than 40 rotate stack B
+rb
+i have pushed 1 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+
+Pushing Back chunk of size :2
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+pa
+pa
+============================================================
+pb
+pb
+pb
+i have pushed 3 elements to stack b
+A								B
+--------------------------------------
+--------------------------------------
+rra
+rra
+rra
+rra
+Still 4 elements in chunk
+chunk stack state
+0 : n : 4
+
+Pushing Back chunk of size :4
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	49
+origine stack A
+54 is higher than 49 rotate stack A
+ra
+origine stack A
+48 is less than 49 pushing to B
+pb
+origine stack A
+53 is higher than 49 rotate stack A
+ra
+origine stack A
+49 is higher than 49 rotate stack A
+ra
+i have pushed 1 elements to stack b
+A								B
+--------------------------------------
+--------------------------------------
+rra
+rra
+rra
+Still 3 elements in chunk
+chunk stack state
+0 : n : 3
+
+Pushing Back chunk of size :3
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	53
+origine stack A
+54 is higher than 53 rotate stack A
+ra
+origine stack A
+53 is higher than 53 rotate stack A
+ra
+origine stack A
+49 is less than 53 pushing to B
+pb
+i have pushed 1 elements to stack b
+A								B
+--------------------------------------
+--------------------------------------
+rra
+rra
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+
+Pushing Back chunk of size :2
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+sa
+pb
+pb
+============================================================
+pa
+pa
+pa
+pa
+pa
+pa
+pa
+i have pushed 7 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+Still 7 elements in chunk
+chunk stack state
+0 : n : 7
+
+Pushing Back chunk of size :7
+state of chunk stack
+A								B
+--------------------------------------
+				40
+75					26
+79					47
+80					14
+81					11
+85					17
+91					12
+92					49
+97					53
+100					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+(empty)					56
+(empty)					64
+(empty)					60
+(empty)					57
+67					40
+69					26
+74					47
+75					14
+79					11
+80					17
+81					12
+85					49
+91					53
+92					48
+97					54
+100					36
+(empty)					16
+(empty)					29
+(empty)					56
+(empty)					64
+(empty)					60
+(empty)					57
+67					56
+69					64
+74					60
+75					57
+79					40
+80					26
+81					47
+85					14
+91					11
+92					17
+97					12
+100					49
+(empty)					53
+(empty)					48
+(empty)					54
+(empty)					36
+(empty)					16
+(empty)					29
+60					40
+64					26
+67					47
+69					14
+74					11
+75					17
+79					12
+80					49
+81					53
+85					48
+91					54
+92					36
+97					16
+100					29
+(empty)					56
+(empty)					57
+60					56
+64					57
+67					40
+69					26
+74					47
+75					14
+79					11
+80					17
+81					12
+85					49
+91					53
+92					48
+97					54
+100					36
+(empty)					16
+(empty)					29
+56					40
+57					26
+60					47
+64					14
+67					11
+69					17
+74					12
+75					49
+79					53
+80					48
+81					54
+85					36
+91					16
+92					29
+97					(empty)
+100					(empty)
+36					26
+54					14
+48					11
+53					17
+49					12
+47					16
+40					29
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+56					40
+57					47
+60					36
+64					26
+67					14
+69					11
+74					17
+75					12
+79					16
+80					29
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+48					(empty)
+53					(empty)
+49					(empty)
+47					26
+56					14
+57					11
+60					17
+64					12
+67					16
+69					29
+74					40
+75					36
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+48					(empty)
+53					(empty)
+49					(empty)
+47					26
+56					14
+57					11
+60					17
+64					12
+67					16
+69					29
+74					40
+75					36
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+48					(empty)
+53					(empty)
+49					(empty)
+56					47
+57					26
+60					14
+64					11
+67					17
+69					12
+74					16
+75					29
+79					40
+80					36
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+48					(empty)
+53					(empty)
+49					(empty)
+54					47
+48					26
+53					14
+49					11
+56					17
+57					12
+60					16
+64					29
+67					40
+69					36
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+56					48
+57					47
+60					26
+64					14
+67					11
+69					17
+74					12
+75					16
+79					29
+80					40
+81					36
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+53					(empty)
+49					(empty)
+54					48
+53					47
+49					26
+56					14
+57					11
+60					17
+64					12
+67					16
+69					29
+74					40
+75					36
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+56					49
+57					48
+60					47
+64					26
+67					14
+69					11
+74					17
+75					12
+79					16
+80					29
+81					40
+85					36
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+54					(empty)
+53					(empty)
+54					49
+53					48
+56					47
+57					26
+60					14
+64					11
+67					17
+69					12
+74					16
+75					29
+79					40
+80					36
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+14					11
+26					17
+47					12
+48					16
+49					29
+53					40
+54					36
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+14					11
+26					17
+47					12
+48					16
+49					29
+53					40
+54					36
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empt--------------------------------------
+
+ median is :	17
+origine stack B
+11 is lesser than 17 rotate stack B
+rb
+origine stack B
+17 is lesser than 17 rotate stack B
+rb
+origine stack B
+12 is lesser than 17 rotate stack B
+rb
+origine stack B
+16 is lesser than 17 rotate stack B
+rb
+origine stack B
+29 is higher than 17 pushing to A
+pa
+origine stack B
+40 is higher than 17 pushing to A
+pa
+origine stack B
+36 is higher than 17 pushing to A
+pa
+======================================================
+New call to pushback:	 Stack:a
+0 : n : 3
+
+Pushing Back chunk of size :3
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	36
+origine stack A
+36 is higher than 36 rotate stack A
+ra
+origine stack A
+40 is higher than 36 rotate stack A
+ra
+origine stack A
+29 is less than 36 pushing to B
+pb
+i have pushed 1 elements to stack b
+A								B
+--------------------------------------
+--------------------------------------
+rra
+rra
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+
+Pushing Back chunk of size :2
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+pb
+pb
+============================================================
+pa
+pa
+pa
+i have pushed 3 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+Still 4 elements in chunk
+chunk stack state
+0 : n : 4
+
+Pushing Back chunk of size :4
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+
+ median is :	12
+origine stack B
+11 is lesser than 12 rotate stack B
+rb
+origine stack B
+17 is higher than 12 pushing to A
+pa
+origine stack B
+12 is lesser than 12 rotate stack B
+rb
+origine stack B
+16 is higher than 12 pushing to A
+pa
+i have pushed 2 elements to stack a
+A								B
+--------------------------------------
+--------------------------------------
+Still 2 elements in chunk
+chunk stack state
+0 : n : 2
+
+Pushing Back chunk of size :2
+state of chunk stack
+A								B
+--------------------------------------
+--------------------------------------
+sb
+pa
+pa
+============================================================
+A								B
+--------------------------------------
+--------------------------------------
+is sorted ? n
+y)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+36					11
+40					17
+29					12
+14					16
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+14					29
+26					11
+47					17
+48					12
+49					16
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+36					(empty)
+40					(empty)
+36					29
+40					11
+14					17
+26					12
+47					16
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+29					11
+36					17
+40					12
+14					16
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+29					11
+36					17
+40					12
+14					16
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+16					11
+17					12
+29					(empty)
+36					(empty)
+40					(empty)
+14					(empty)
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+16					11
+17					12
+29					(empty)
+36					(empty)
+40					(empty)
+14					(empty)
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
+11					(empty)
+12					(empty)
+16					(empty)
+17					(empty)
+29					(empty)
+36					(empty)
+40					(empty)
+14					(empty)
+26					(empty)
+47					(empty)
+48					(empty)
+49					(empty)
+53					(empty)
+54					(empty)
+56					(empty)
+57					(empty)
+60					(empty)
+64					(empty)
+67					(empty)
+69					(empty)
+74					(empty)
+75					(empty)
+79					(empty)
+80					(empty)
+81					(empty)
+85					(empty)
+91					(empty)
+92					(empty)
+97					(empty)
+100					(empty)
