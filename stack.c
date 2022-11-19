@@ -19,7 +19,10 @@ t_node	*push(t_node *top, int n)
 	new = malloc(sizeof(t_node));
 	if (new == NULL)
 		return (NULL);
-	new->next = top;
+	if (top == NULL)
+		new->next = NULL;
+	else
+		new->next = top;
 	new->n = n;
 	return (new);
 }
