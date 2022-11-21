@@ -5,25 +5,46 @@
 #include <limits.h>
 #include "push_swap.h"
 
-int	is_sorted(t_node *stack, int n)
+int is_sorted(t_node **stacks, int n, t_stack s_idx)
 {
 	int i;
+	t_node *pos;
 
-	i = 0;
-	if (stack == NULL)
+	if (n <= 1)
 		return (1);
-	while (stack && i < n)
+	pos = stacks[s_idx];
+	i = 0;
+	if (pos == NULL || pos->next==NULL)
+		return (1);
+	while (pos && i < n)
 	{
-		if (stack->next)
+		if (pos->next)
 		{
-			if (stack->next->n < stack->n)
-				return (0);
+//			ft_printf("%d ? %d\n", pos->n,pos->next->n);
+			if (s_idx == STACK_A)
+			{
+				if (pos->next->n < pos->n)
+				{
+//					ft_printf("not sorted\n");
+					return (0);
+				}
+			}
+			else
+			{
+				if (pos->next->n > pos->n)
+				{
+//					ft_printf("not sorted\n");
+					return (0);
+				}
+			}
 		}
-		stack = stack->next;
-		n ++;
+		pos = pos->next;
+		i ++;
 	}
+//	ft_printf("SORTED");
 	return (1);
 }
+
 int	find_median(t_node *stack, int n)
 {
 	int *array;
@@ -103,46 +124,59 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 		{
 			// if sorted push opposite
 			// else :
-			ch_size = 0;
-			i = 0;
-			// find median
-			median = find_median(stacks[s_idx],size);
-//			ft_printf("\n median is :\t%d\n",median);
-			while (i < size)
+			if (is_sorted(stacks,size,s_idx))
 			{
-				// push to opposite side everything above or greater
-				// than median depending on stack
-				if (s_idx == STACK_A)
+				i = 0;
+				while (i < size)
 				{
-//					ft_printf("origine stack A\n");
-					if (peek(stacks[s_idx]) < median)
-					{
-//						ft_printf("%d is less than %d pushing to B\n", peek(stacks[s_idx]),median);
-						ch_size ++;
-						pb(stacks);
-					}
-					else
-					{
-//						ft_printf("%d is higher than %d rotate stack A\n", peek(stacks[s_idx]), median);
-						ra(stacks);// add rra if last on stacks is < median
-					}
-					i ++;
+					push_opposite(stacks,s_idx);
+					i++;
 				}
-				else
+				continue ;
+			}
+			else
+			{
+				ch_size = 0;
+				i = 0;
+				// find median
+				median = find_median(stacks[s_idx],size);
+	//			ft_printf("\n median is :\t%d\n",median);
+				while (i < size)
 				{
-//					ft_printf("origine stack B\n");
-					if (peek(stacks[s_idx]) > median)
+					// push to opposite side everything above or greater
+					// than median depending on stack
+					if (s_idx == STACK_A)
 					{
-//						ft_printf("%d is higher than %d pushing to A\n", peek(stacks[s_idx]),median);
-						ch_size ++;
-						pa(stacks);
+						//					ft_printf("origine stack A\n");
+						if (peek(stacks[s_idx]) < median)
+						{
+							//						ft_printf("%d is less than %d pushing to B\n", peek(stacks[s_idx]),median);
+							ch_size++;
+							pb(stacks);
+						}
+						else
+						{
+							//						ft_printf("%d is higher than %d rotate stack A\n", peek(stacks[s_idx]), median);
+							ra(stacks);// add rra if last on stacks is < median
+						}
+						i++;
 					}
 					else
 					{
-//						ft_printf("%d is lesser than %d rotate stack B\n", peek(stacks[s_idx]), median);
-						rb(stacks);
+						//					ft_printf("origine stack B\n");
+						if (peek(stacks[s_idx]) > median)
+						{
+							//						ft_printf("%d is higher than %d pushing to A\n", peek(stacks[s_idx]),median);
+							ch_size++;
+							pa(stacks);
+						}
+						else
+						{
+							//						ft_printf("%d is lesser than %d rotate stack B\n", peek(stacks[s_idx]), median);
+							rb(stacks);
+						}
+						i++;
 					}
-					i ++;
 				}
 			}
 			if (ch_size == 2) {
@@ -234,7 +268,9 @@ int sort(t_node **stacks){
 				ch_size ++;
 			}
 			else
+			{
 				ra(stacks); // add rra if last on stacks is < median
+			}
 			i ++;
 		}
 		chunk = push(chunk,ch_size);
