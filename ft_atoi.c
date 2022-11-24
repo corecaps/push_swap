@@ -48,8 +48,14 @@ t_result 	ft_atoi(const char *str)
 	else if (str[0] == '+')
 		str ++;
 	pos = 0;
-	while ((str[pos] != '\0') && (ft_isdigit(str[pos])))
+	while ((str[pos] != '\0'))
 	{
+		if (!ft_isdigit(str[pos]))
+		{
+			res.err = 1;
+			res.n = 0;
+			return (res);
+		}
 		result = result * 10 + str[pos] - '0';
 		pos ++;
 	}

@@ -4,6 +4,124 @@
 
 #include <limits.h>
 #include "push_swap.h"
+int get_3_pos(t_node **stacks, t_stack s_idx)
+{
+	int result;
+	int max;
+	int min;
+	int i;
+	t_node *pos;
+
+	pos = stacks[s_idx];
+	max = peek(pos);
+	min = peek(pos);
+	i = 0;
+	result = 0;
+	while (i < 3)
+	{
+		if (peek(pos) > max)
+			max = peek(pos);
+		if (peek(pos) < min)
+			min = peek(pos);
+		pos = pos->next;
+		i ++;
+	}
+	pos = stacks[s_idx];
+	i = 0;
+	while (i < 3)
+	{
+		if (peek(pos) == max)
+			result += MAX_TOP << i;
+		if (peek(pos) == min)
+			result += MIN_TOP << i;
+		i++;
+		pos = pos->next;
+	}
+	return result;
+}
+
+void sort_3(t_node **stacks,t_stack s_idx)
+{
+	int pos_3;
+
+	pos_3 = get_3_pos(stacks,s_idx);
+	if (pos_3 == MIN_TOP + MAX_BOTTOM)
+		return;
+	else if (pos_3 == MIN_TOP + MAX_MIDDLE)
+	{
+		ra(stacks);
+		sa(stacks);
+		rra(stacks);
+
+	}
+	else if (pos_3 == MIN_MIDDLE + MAX_BOTTOM)
+	{
+		sa(stacks);
+	}
+	else if (pos_3 == MAX_MIDDLE + MIN_BOTTOM)
+	{
+		ra(stacks);
+		sa(stacks);
+		rra(stacks);
+		sa(stacks);
+	}
+	else if (pos_3 == MAX_TOP + MIN_MIDDLE)
+	{
+		sa(stacks);
+		ra(stacks);
+		sa(stacks);
+		rra(stacks);
+	}
+	else if (pos_3 == MAX_TOP + MIN_BOTTOM)
+	{
+		sa(stacks);
+		ra(stacks);
+		sa(stacks);
+		rra(stacks);
+		sa(stacks);
+	}
+}
+
+void sort_3_reversed(t_node **stacks,t_stack s_idx)
+{
+	t_3_pos pos_3;
+
+	pos_3 = get_3_pos(stacks,s_idx);
+	if (pos_3 == MAX_TOP + MIN_BOTTOM)
+		return;
+	else if (pos_3 == MAX_TOP + MIN_MIDDLE)
+	{
+		rb(stacks);
+		sb(stacks);
+		rrb(stacks);
+	}
+	else if (pos_3 == MAX_MIDDLE + MIN_BOTTOM)
+	{
+		sb(stacks);
+	}
+	else if (pos_3 == MAX_BOTTOM + MIN_MIDDLE)
+	{
+		rb(stacks);
+		sb(stacks);
+		rrb(stacks);
+		sb(stacks);
+	}
+	else if (pos_3 == MAX_MIDDLE + MIN_TOP)
+	{
+		sb(stacks);
+		rb(stacks);
+		sb(stacks);
+		rrb(stacks);
+	}
+	else if (pos_3 == MAX_BOTTOM + MIN_TOP)
+	{
+		sb(stacks);
+		rb(stacks);
+		sb(stacks);
+		rrb(stacks);
+		sb(stacks);
+	}
+}
 
 int is_sorted(t_node **stacks, int n, t_stack s_idx)
 {
@@ -120,6 +238,25 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 				pa(stacks);
 			}
 		}
+		else if (size == 3)
+		{
+//			ft_printf("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			if (s_idx == STACK_A)
+			{
+//				print_stack(stacks[STACK_A],stacks[STACK_B]);
+				sort_3(stacks,s_idx);
+				pb(stacks);
+				pb(stacks);
+				pb(stacks);
+			}
+			else
+			{
+				sort_3_reversed(stacks,s_idx);
+				pa(stacks);
+				pa(stacks);
+				pa(stacks);
+			}
+		}
 		else
 		{
 			// if sorted push opposite
@@ -140,39 +277,39 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 				i = 0;
 				// find median
 				median = find_median(stacks[s_idx],size);
-	//			ft_printf("\n median is :\t%d\n",median);
+//				ft_printf("\n median is :\t%d\n",median);
 				while (i < size)
 				{
 					// push to opposite side everything above or greater
 					// than median depending on stack
 					if (s_idx == STACK_A)
 					{
-						//					ft_printf("origine stack A\n");
+//						ft_printf("origine stack A\n");
 						if (peek(stacks[s_idx]) < median)
 						{
-							//						ft_printf("%d is less than %d pushing to B\n", peek(stacks[s_idx]),median);
+//							ft_printf("%d is less than %d pushing to B\n", peek(stacks[s_idx]),median);
 							ch_size++;
 							pb(stacks);
 						}
 						else
 						{
-							//						ft_printf("%d is higher than %d rotate stack A\n", peek(stacks[s_idx]), median);
+//							ft_printf("%d is higher than %d rotate stack A\n", peek(stacks[s_idx]), median);
 							ra(stacks);// add rra if last on stacks is < median
 						}
 						i++;
 					}
 					else
 					{
-						//					ft_printf("origine stack B\n");
+//						ft_printf("origine stack B\n");
 						if (peek(stacks[s_idx]) > median)
 						{
-							//						ft_printf("%d is higher than %d pushing to A\n", peek(stacks[s_idx]),median);
+//							ft_printf("%d is higher than %d pushing to A\n", peek(stacks[s_idx]),median);
 							ch_size++;
 							pa(stacks);
 						}
 						else
 						{
-							//						ft_printf("%d is lesser than %d rotate stack B\n", peek(stacks[s_idx]), median);
+//							ft_printf("%d is lesser than %d rotate stack B\n", peek(stacks[s_idx]), median);
 							rb(stacks);
 						}
 						i++;
@@ -193,7 +330,16 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 					}
 				}
 			}
-			else if (ch_size > 2)
+			else if (ch_size == 3)
+			{
+				if (s_idx == STACK_A)
+				{
+					sort_3_reversed(stacks,!s_idx);
+				}
+				else
+					sort_3(stacks,!s_idx);
+			}
+			else if (ch_size > 3)
 			{
 				// create a new chunk stack to process the recursive call
 				new_chunk = NULL;
@@ -282,7 +428,7 @@ int sort(t_node **stacks){
 		sa(stacks);
 	push_back(stacks,STACK_B,chunk);
 //	print_stack(stacks[STACK_A],stacks[STACK_B]);
-//	i = is_sorted(stacks[STACK_A], count_stack(stacks[STACK_A]));
+//	i = is_sorted(stacks, count_stack(stacks[STACK_A]),STACK_A);
 //	ft_printf("is sorted ? %c\n",i ? 'y' : 'n');
 	return (0);
 }

@@ -14,27 +14,28 @@
 
 void	ft_error(int code)
 {
-	ft_printf("Parsing Error");
+	ft_printf("Error");
 	exit(code);
 }
 
 int	main(int argc, char **argv)
 {
 	t_node	*stacks[2];
-	t_chunk *initial_chunk;
+//	t_chunk *initial_chunk;
 
 	stacks[STACK_A] = NULL;
 	stacks[STACK_B] = NULL;
 	if (parser(argc, argv, stacks))
 		ft_error(1);
-	initial_chunk = malloc (sizeof(t_chunk));
-	if (initial_chunk == NULL)
-		ft_error(1);
-	initial_chunk->stack = STACK_A;
-	initial_chunk->n = count_stack(stacks[STACK_A]);
+//	initial_chunk = malloc (sizeof(t_chunk));
+//	if (initial_chunk == NULL)
+//		ft_error(1);
+//	initial_chunk->stack = STACK_A;
+//	initial_chunk->n = count_stack(stacks[STACK_A]);
+//	test_3_sort();
 	sort(stacks);
 //	print_stack(stacks[STACK_A],stacks[STACK_B]);//	operations_test(&top_a, &top_b);
-	free(initial_chunk);
+//	free(initial_chunk);
 	clean_memory(stacks[STACK_A]);
 	clean_memory(stacks[STACK_B]);
 	return (0);

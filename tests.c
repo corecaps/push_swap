@@ -3,7 +3,28 @@
 //
 #include "push_swap.h"
 #include <stdio.h>
-
+//void test_3_sort()
+//{
+//	t_node **stacks;
+//
+//	stacks = malloc(sizeof (t_node *) * 2);
+//	stacks[STACK_A] = NULL;
+//	stacks[STACK_B] = NULL;
+//
+//	stacks[STACK_A] = push(stacks[STACK_A],3);
+//	stacks[STACK_A] = push(stacks[STACK_A], 2);
+//	stacks[STACK_A] = push(stacks[STACK_A],1);
+//	print_stack(stacks[STACK_A],stacks[STACK_B]);
+//	sort_3(stacks,STACK_A);
+//	print_stack(stacks[STACK_A],stacks[STACK_B]);
+//
+//	stacks[STACK_A] = push(stacks[STACK_A],2);
+//	stacks[STACK_A] = push(stacks[STACK_A], 3);
+//	stacks[STACK_A] = push(stacks[STACK_A],1);
+//	print_stack(stacks[STACK_A],stacks[STACK_B]);
+//	sort_3(stacks,STACK_A);
+//	print_stack(stacks[STACK_A],stacks[STACK_B]);
+//}
 void print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b)
 {
 	t_node *pos;

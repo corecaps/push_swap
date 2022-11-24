@@ -18,7 +18,10 @@ static int	clean(char **s, size_t size)
 
 	pos = 0;
 	while (pos < size)
+	{
 		free(s[pos]);
+		pos ++;
+	}
 	return (-1);
 }
 

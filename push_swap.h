@@ -19,6 +19,15 @@ typedef enum e_stack
 	STACK_A,
 	STACK_B
 } t_stack;
+typedef enum e_3_pos
+{
+	MIN_TOP = 1,
+	MIN_MIDDLE = 2,
+	MIN_BOTTOM = 4,
+	MAX_TOP = 8,
+	MAX_MIDDLE = 16,
+	MAX_BOTTOM = 32
+} t_3_pos;
 typedef struct s_node
 {
 	int n;
@@ -75,6 +84,8 @@ void		print_stack(t_node *top_a,t_node *top_b);
 void		print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b);
 void		operations_test(t_node **top_a, t_node **top_b);
 int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
+void		sort_3(t_node **stacks,t_stack s_idx);
+void		test_3_sort();
 //end debug
 void		clean_memory(t_node *stack);
 int			sort(t_node **stacks);

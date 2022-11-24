@@ -6,12 +6,12 @@
 #    By: jgarcia <jgarcia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 11:04:01 by jgarcia           #+#    #+#              #
-#    Updated: 2022/09/01 11:14:14 by jgarcia          ###   ########.fr        #
+#    Updated: 2022/11/22 23:36:35 by jgarcia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
-CFLAGS=-Wall -Wextra -Werror -g
+CFLAGS=-Wall -Wextra -Werror -g3 -fanalyzer
 CC=gcc
 PRINTF=ft_printf/libftprintf.a
 LINK=-Lft_printf -lftprintf
