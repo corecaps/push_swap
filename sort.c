@@ -188,7 +188,34 @@ void push_opposite(t_node **stacks,t_stack s_idx)
 		pa(stacks);
 }
 
-void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
+void push_2_sorted(t_node **stacks, t_stack *s_idx)
+{
+	if ((*s_idx) == STACK_A)
+	{
+		if (peek(stacks[(*s_idx)]) > (peek(stacks[(*s_idx)]->next)))
+			sa(stacks);
+	}
+	else
+	{
+		if (peek(stacks[(*s_idx)]) < (peek(stacks[(*s_idx)]->next)))
+			sb(stacks);
+	}
+	push_opposite(stacks, (*s_idx));
+	push_opposite(stacks, (*s_idx));
+}
+
+void push_3_sorted(t_node **stacks, t_stack *s_idx)
+{
+	if ((*s_idx) == STACK_A)
+		sort_3(stacks, (*s_idx));
+	else
+		sort_3_reversed(stacks, (*s_idx));
+	push_opposite(stacks, (*s_idx));
+	push_opposite(stacks, (*s_idx));
+	push_opposite(stacks, (*s_idx));
+}
+
+void push_back(t_node **stacks, t_stack s_idx, t_node *chunk)
 {
 	int median;
 	int ch_size;
@@ -203,30 +230,9 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 		if (size == 1)
 			push_opposite(stacks,s_idx);
 		else if (size == 2)
-		{
-			if (s_idx == STACK_A)
-			{
-				if (peek(stacks[s_idx]) > (peek(stacks[s_idx]->next)))
-					sa(stacks);
-			}
-			else
-			{
-				if (peek(stacks[s_idx]) < (peek(stacks[s_idx]->next)))
-					sb(stacks);
-			}
-			push_opposite(stacks,s_idx);
-			push_opposite(stacks,s_idx);
-		}
+			push_2_sorted(stacks, &s_idx);
 		else if (size == 3)
-		{
-			if (s_idx == STACK_A)
-				sort_3(stacks,s_idx);
-			else
-				sort_3_reversed(stacks,s_idx);
-			push_opposite(stacks,s_idx);
-			push_opposite(stacks,s_idx);
-			push_opposite(stacks,s_idx);
-		}
+			push_3_sorted(stacks, &s_idx);
 		else
 		{
 			i = 0;
@@ -250,7 +256,7 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 							pb(stacks);
 						}
 						else
-							ra(stacks);// add rra if last on stacks is < median
+							ra(stacks);
 						i++;
 					}
 					else
@@ -314,11 +320,13 @@ void push_back(t_node **stacks,t_stack s_idx,t_node *chunk)
 	}
 }
 
-int sort(t_node **stacks){
+void sort(t_node **stacks){
 	int size;
 	t_node *chunk;
 
 	chunk = NULL;
+	if (is_sorted(stacks, count_stack(stacks[STACK_A]),STACK_A))
+		return;
 	size = count_stack(stacks[STACK_A]);
 	chunk = first_split(stacks, size, chunk);
 	if (count_stack(stacks[STACK_A]) == 2)
@@ -331,7 +339,6 @@ int sort(t_node **stacks){
 		sort_3_A(stacks,STACK_A);
 	}
 	push_back(stacks,STACK_B,chunk);
-	return (0);
 }
 
 t_node *first_split(t_node **stacks, int size, t_node *chunk)

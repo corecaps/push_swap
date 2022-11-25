@@ -88,6 +88,6 @@ void		sort_3(t_node **stacks,t_stack s_idx);
 void		test_3_sort();
 //end debug
 void		clean_memory(t_node *stack);
-int			sort(t_node **stacks);
+void sort(t_node **stacks);
 t_node *first_split(t_node **stacks, int size, t_node *chunk);
 #endif

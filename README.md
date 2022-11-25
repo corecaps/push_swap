@@ -18,10 +18,13 @@ the goal is to sort integers contained in a LIFO stack using only one more LIFO 
 ## My solution :
 
 ### Efficiency
-- [ ] 3 Numbers  	Average:	4	Max:	5	Min:	4
-- [ ] 5 numbers  	Average:	12	Max:	13	Min:	11
-- [ ] 10 numbers 	Average:	34	Max:	37	Min:	32
-- [x] 100 numbers 	Average:	890	Max:	919	Min:	861
-- [x] 500 numbers  	Average:	6793	Max:	6854	Min:	6740
+-  3 Numbers  	Average:	1	Max:	2	Min:	0
+-  5 numbers  	Average:	8	Max:	10	Min:	7
+-  10 numbers 	Average:	31	Max:	34	Min:	28
+-  100 numbers 	Average:	888	Max:	915	Min:	853
+-  500 numbers  	Average:	6794	Max:	6833	Min:	6731
+
+
+![efficiency graph](./efficiency.png)
 
 ### Algorithm 
