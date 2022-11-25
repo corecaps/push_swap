@@ -25,15 +25,20 @@ def main():
                 args += str(i)
                 args += " "
             r = int(subprocess.check_output('./push_swap ' + args + '| wc -l', shell=True))
+            if (n == 5) and (r > 12):
+                print("r:",r)
+                print("\n===============================================================================\n")
+                print(args)
+                print("\n===============================================================================\n")
             result.append(r)
             stats_r.append(r)
             stats_n.append(n)
         print(f"Sorting {n} numbers over {T} iterations\nCounting operations : \tAverage:\t{int(sum(result)/len(result))}\tMax:\t{max(result)}\tMin:\t{min(result)}\n")
-    ref_nlogn = []
-    for x in stats_n:
-        ref_nlogn.append(x * np.log(x))
-    plt.plot(stats_n,stats_r)
-    plt.plot(stats_n,ref_nlogn)
-    plt.show()
+#    ref_nlogn = []
+#    for x in stats_n:
+#        ref_nlogn.append(x * np.log(x))
+#    plt.plot(stats_n,stats_r)
+#    plt.plot(stats_n,ref_nlogn)
+#    plt.show()
 if __name__ == "__main__":
     main()

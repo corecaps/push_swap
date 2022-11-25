@@ -45,6 +45,13 @@ static int substr_parser(char *str, t_node **stacks)
 			// TODO Error Handling
 		pos ++;
 	}
+	pos = 0;
+	while (args[pos] != NULL)
+	{
+		free(args[pos]);
+		pos ++;
+	}
+	free (args);
 	return (0);
 }
 
