@@ -34,7 +34,7 @@ static int substr_parser(char *str, t_node **stacks)
 	while (args[pos] != NULL)
 	{
 		result = ft_atoi(args[pos]);
-		if (result.err)
+		if (result.err || args[pos][0] == '\0')
 			return (1);
 		else
 		{
@@ -42,7 +42,6 @@ static int substr_parser(char *str, t_node **stacks)
 			if (stacks[STACK_A] == NULL)
 				return (1);
 		}
-			// TODO Error Handling
 		pos ++;
 	}
 	pos = 0;
@@ -76,13 +75,14 @@ int	parser(int argc, char **argv, t_node **stacks)
 			}
 		}
 		result = ft_atoi(argv[pos]);
-		if (result.err == 0)
+		if (argv[pos][0] == '\0')
+			return (1);
+		if (result.err == 0	)
 		{
 			*stacks = push_bottom(stacks[STACK_A], result.n);
 			if (*stacks == NULL)
 				return (1);
 		}
-		// TODO Error handling
 		else
 			return (1);
 		pos ++;

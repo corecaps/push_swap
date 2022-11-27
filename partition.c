@@ -10,7 +10,6 @@ int *stack_to_array(t_node *stack, int n)
 {
 	int 	*array;
 	int 	size;
-	int 	i;
 	t_node	*current_node;
 
 	if (stack == NULL)
@@ -23,6 +22,14 @@ int *stack_to_array(t_node *stack, int n)
 	if (array == NULL)
 		return (NULL);
 	current_node = stack;
+	fill_array(n, array, current_node);
+	return (array);
+}
+
+void fill_array(int n, int *array, t_node *current_node)
+{
+	int i;
+
 	i = 0;
 	while (i < n && current_node)
 	{
@@ -30,8 +37,8 @@ int *stack_to_array(t_node *stack, int n)
 		i ++;
 		current_node = current_node->next;
 	}
-	return (array);
 }
+
 static void swap(int *a, int *b)
 {
 	int buf;
@@ -63,19 +70,19 @@ static int	partition(int *array,int start,int end)
 	return (l_pos + 1);
 }
 
- void sort_array(int *array,int start,int end)
+ void quick_sort(int *array, int start, int end)
 {
 	int split_index;
 	if (start < end)
 	{
 		split_index = partition(array,start,end);
-		sort_array(array,start, split_index - 1);
-		sort_array(array,split_index + 1,end);
+		quick_sort(array, start, split_index - 1);
+		quick_sort(array, split_index + 1, end);
 	}
 }
 
-int		get_pivot(int *array,int start,int end)
+int		get_median(int *array, int start, int end)
 {
-	sort_array(array,start,end);
+	quick_sort(array, start, end);
 	return (array[((end - start) / 2) + start]);
 }

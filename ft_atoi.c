@@ -13,16 +13,13 @@
 #include <limits.h>
 #include "push_swap.h"
 
-static long int	check_result(long int result, int signe)
+static long check_result(long int result)
 {
 	if (result > INT_MAX || result < INT_MIN)
 	{
-		if (signe < 1)
-			return (0);
-		else
 			return (-1);
 	}
-	return (result);
+	return (0);
 }
 static int ft_isdigit(char c)
 {
@@ -53,7 +50,6 @@ t_result 	ft_atoi(const char *str)
 		if (!ft_isdigit(str[pos]))
 		{
 			res.err = 1;
-			res.n = 0;
 			return (res);
 		}
 		result = result * 10 + str[pos] - '0';
@@ -62,12 +58,10 @@ t_result 	ft_atoi(const char *str)
 	if (ft_isdigit(str[pos]))
 	{
 		res.err = 1;
-		res.n = 0;
 		return (res);
 	}
 	result *= signe;
-	result = check_result(result, signe);
+	res.err = check_result(result);
 	res.n = (int)result;
-	res.err = 0;
 	return (res);
 }

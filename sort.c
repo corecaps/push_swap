@@ -4,13 +4,13 @@
 
 #include "push_swap.h"
 
-int get_3_pos(t_node **stacks, t_stack s_idx)
+int	get_3_pos(t_node **stacks, t_stack s_idx)
 {
-	int result;
-	int max;
-	int min;
-	int i;
-	t_node *pos;
+	int		result;
+	int		max;
+	int		min;
+	int		i;
+	t_node	*pos;
 
 	pos = stacks[s_idx];
 	max = peek(pos);
@@ -40,9 +40,9 @@ int get_3_pos(t_node **stacks, t_stack s_idx)
 	return result;
 }
 
-void sort_3(t_node **stacks,t_stack s_idx)
+void	sort_3(t_node **stacks,t_stack s_idx)
 {
-	int pos_3;
+	int	pos_3;
 
 	pos_3 = get_3_pos(stacks,s_idx);
 	if (pos_3 == MIN_TOP + MAX_BOTTOM)
@@ -80,7 +80,7 @@ void sort_3(t_node **stacks,t_stack s_idx)
 	}
 }
 
-void sort_3_A(t_node **stacks,t_stack s_idx)
+void	sort_3_A(t_node **stacks,t_stack s_idx)
 {
 	int pos_3;
 
@@ -105,7 +105,7 @@ void sort_3_A(t_node **stacks,t_stack s_idx)
 	}
 }
 
-void sort_3_reversed(t_node **stacks,t_stack s_idx)
+void	sort_3_reversed(t_node **stacks,t_stack s_idx)
 {
 	t_3_pos pos_3;
 
@@ -144,10 +144,10 @@ void sort_3_reversed(t_node **stacks,t_stack s_idx)
 	}
 }
 
-int is_sorted(t_node **stacks, int n, t_stack s_idx)
+int	is_sorted(t_node **stacks, int n, t_stack s_idx)
 {
-	int i;
-	t_node *pos;
+	int		i;
+	t_node	*pos;
 
 	if (n <= 1)
 		return (1);
@@ -171,16 +171,16 @@ int is_sorted(t_node **stacks, int n, t_stack s_idx)
 
 int	find_median(t_node *stack, int n)
 {
-	int *array;
-	int result;
+	int	*array;
+	int	result;
 
 	array  = stack_to_array(stack,n);
-	result = get_pivot(array,0, n-1);
+	result = get_median(array, 0, n - 1);
 	free(array);
 	return (result);
 }
 
-void push_opposite(t_node **stacks,t_stack s_idx)
+void	push_opposite(t_node **stacks,t_stack s_idx)
 {
 	if (s_idx == STACK_A)
 		pb(stacks);
@@ -188,7 +188,7 @@ void push_opposite(t_node **stacks,t_stack s_idx)
 		pa(stacks);
 }
 
-void push_2_sorted(t_node **stacks, t_stack *s_idx)
+void	push_2_sorted(t_node **stacks, t_stack *s_idx)
 {
 	if ((*s_idx) == STACK_A)
 	{
@@ -204,7 +204,7 @@ void push_2_sorted(t_node **stacks, t_stack *s_idx)
 	push_opposite(stacks, (*s_idx));
 }
 
-void push_3_sorted(t_node **stacks, t_stack *s_idx)
+void	push_3_sorted(t_node **stacks, t_stack *s_idx)
 {
 	if ((*s_idx) == STACK_A)
 		sort_3(stacks, (*s_idx));
@@ -215,15 +215,10 @@ void push_3_sorted(t_node **stacks, t_stack *s_idx)
 	push_opposite(stacks, (*s_idx));
 }
 
-void push_back(t_node **stacks, t_stack s_idx, t_node *chunk)
+void	push_back(t_node **stacks, t_stack s_idx, t_node *chunk)
 {
-	int median;
-	int ch_size;
-	int size;
-	int i;
-	t_node *new_chunk;
+	int	size;
 
-	new_chunk = NULL;
 	while (chunk)
 	{
 		size = pop(&chunk);
@@ -235,94 +230,138 @@ void push_back(t_node **stacks, t_stack s_idx, t_node *chunk)
 			push_3_sorted(stacks, &s_idx);
 		else
 		{
-			i = 0;
-			if (is_sorted(stacks,size,s_idx))
-			{
-				while (i++ < size)
-					push_opposite(stacks,s_idx);
-				continue ;
-			}
-			else
-			{
-				ch_size = 0;
-				median = find_median(stacks[s_idx],size);
-				while (i < size)
-				{
-					if (s_idx == STACK_A)
-					{
-						if (peek(stacks[s_idx]) < median)
-						{
-							ch_size++;
-							pb(stacks);
-						}
-						else
-							ra(stacks);
-						i++;
-					}
-					else
-					{
-						if (peek(stacks[s_idx]) > median)
-						{
-							ch_size++;
-							pa(stacks);
-						}
-						else
-							rb(stacks);
-						i++;
-					}
-				}
-			}
-			if (ch_size == 2) {
-				if (s_idx == STACK_A)
-				{
-					if (peek(stacks[STACK_B]) < peek(stacks[STACK_B]->next))
-						sb(stacks);
-				} else {
-					if (peek(stacks[STACK_A]) > peek(stacks[STACK_A]->next))
-						sa(stacks);
-				}
-			}
-			else if (ch_size == 3)
-			{
-				if (s_idx == STACK_A)
-					sort_3_reversed(stacks,!s_idx);
-				else
-					sort_3(stacks,!s_idx);
-			}
-			else if (ch_size > 3)
-			{
-				new_chunk = NULL;
-				new_chunk = push(new_chunk, ch_size);
-				push_back(stacks, !s_idx, new_chunk);
-				i = 0;
-				while (i++ < ch_size)
-				{
-					if (s_idx == STACK_A)
-						pb(stacks);
-					else
-						pa(stacks);
-				}
-			}
-			if (count_stack(stacks[s_idx])!= size-ch_size)
-			{
-				i = 0;
-				while (i++ < (size - ch_size))
-				{
-					if (s_idx == STACK_A)
-						rra(stacks);
-					else
-						rrb(stacks);
-				}
-			}
-			if (size - ch_size > 0)
-				chunk = push(chunk, size - ch_size);
+			push_n(stacks, size, &s_idx, &chunk);
 		}
 	}
 }
 
-void sort(t_node **stacks){
-	int size;
-	t_node *chunk;
+void push_n(t_node **stacks, int size, t_stack *s_idx, t_node **chunk)
+{
+	int i;
+	int ch_size;
+	t_node *new_chunk;
+
+	i = 0;
+	ch_size = 0;
+	new_chunk = NULL;
+	if (is_sorted(stacks, size, (*s_idx)))
+	{
+		while (i++ < size)
+			push_opposite(stacks, (*s_idx));
+				return ;
+	}
+	else
+		ch_size = create_new_chunk(stacks, (*s_idx), size);
+	(*s_idx) = chunk_handler(stacks, s_idx, ch_size, i, new_chunk);
+	if (count_stack(stacks[(*s_idx)]) != size - ch_size)
+	{
+		i = 0;
+		while (i++ < (size - ch_size))
+			rrx(stacks, s_idx);
+	}
+	if (size - ch_size > 0)
+		(*chunk) = push((*chunk), size - ch_size);
+}
+
+t_stack	chunk_handler(t_node **stacks, t_stack *s_idx, int ch_size, int i,
+					  t_node *new_chunk)
+{
+	if (ch_size == 2) {
+		if ((*s_idx) == STACK_A)
+		{
+			if (peek(stacks[STACK_B]) < peek(stacks[STACK_B]->next))
+				sb(stacks);
+		} else {
+			if (peek(stacks[STACK_A]) > peek(stacks[STACK_A]->next))
+				sa(stacks);
+		}
+	}
+	else if (ch_size == 3)
+	{
+		if ((*s_idx) == STACK_A)
+			sort_3_reversed(stacks,!(*s_idx));
+		else
+			sort_3(stacks,!(*s_idx));
+	}
+	else if (ch_size > 3)
+	{
+		new_chunk = NULL;
+		new_chunk = push(new_chunk, ch_size);
+		push_back(stacks, !(*s_idx), new_chunk);
+		i = 0;
+		while (i++ < ch_size)
+			px(stacks, s_idx);
+	}
+	return (*s_idx);
+}
+
+void	px(t_node **stacks, t_stack *s_idx)
+{
+	if ((*s_idx) == STACK_A)
+		pb(stacks);
+	else
+		pa(stacks);
+}
+
+void	rrx(t_node **stacks, t_stack *s_idx)
+{
+	if ((*s_idx) == STACK_A)
+		rra(stacks);
+	else
+		rrb(stacks);
+}
+
+int	create_new_chunk(t_node **stacks, t_stack s_idx, int size)
+{
+	int	ch_size;
+	int	i;
+	int	median;
+
+	i = 0;
+	ch_size = 0;
+	median = find_median(stacks[s_idx], size);
+	while (i < size)
+	{
+		if (s_idx == STACK_A)
+		{
+			ch_size = split_a(stacks, s_idx, ch_size, median);
+		}
+		else
+		{
+			ch_size = split_b(stacks, s_idx, ch_size, median);
+		}
+		i++;
+	}
+	return ch_size;
+}
+
+int split_b(t_node **stacks, t_stack s_idx, int ch_size, int median)
+{
+	if (peek(stacks[s_idx]) > median)
+	{
+		ch_size++;
+		pa(stacks);
+	}
+	else
+		rb(stacks);
+	return ch_size;
+}
+
+int split_a(t_node **stacks, t_stack s_idx, int ch_size, int median)
+{
+	if (peek(stacks[s_idx]) < median)
+	{
+		ch_size++;
+		pb(stacks);
+	}
+	else
+		ra(stacks);
+	return ch_size;
+}
+
+void	sort(t_node **stacks){
+	int		size;
+	t_node	*chunk;
 
 	chunk = NULL;
 	if (is_sorted(stacks, count_stack(stacks[STACK_A]),STACK_A))
@@ -341,28 +380,19 @@ void sort(t_node **stacks){
 	push_back(stacks,STACK_B,chunk);
 }
 
-t_node *first_split(t_node **stacks, int size, t_node *chunk)
+t_node	*first_split(t_node **stacks, int size, t_node *chunk)
 {
-	int i;
-	int median;
-	int ch_size;
+	int	i;
+	int	median;
+	int	ch_size;
 
 	while (size > 3)
 	{
 		ch_size = 0;
 		median = find_median(stacks[STACK_A], size);
 		i = 0;
-		while (i < size)
-		{
-			if (peek(stacks[STACK_A]) < median)
-			{
-				pb(stacks);
-				ch_size ++;
-			}
-			else
-				ra(stacks);
-			i ++;
-		}
+		while (i++ < size)
+			ch_size = split_a(stacks, STACK_A, ch_size, median);
 		chunk = push(chunk,ch_size);
 		size = count_stack(stacks[STACK_A]);
 	}

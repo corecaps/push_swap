@@ -35,20 +35,10 @@ typedef struct s_node
 }t_node;
 typedef struct s_result
 {
-	int n;
+	long int n;
 	int err;
 } t_result;
-typedef struct s_chunk
-{
-	t_stack	stack;
-	int		n;
-	int 	current_pivot;
-}t_chunk;
-typedef struct s_partition
-{
-	t_chunk	high_chunk;
-	t_chunk	low_chunk;
-} t_partition;
+
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
@@ -66,8 +56,9 @@ int			is_in_stack(t_node *top_a,int n);
 int			count_stack(t_node *top);
 int			peek(t_node *top);
 int 		*stack_to_array(t_node *stack, int n);
-void		sort_array(int *array,int start,int end);
-int			get_pivot(int *array,int start,int end);
+void		fill_array(int n, int *array, t_node *current_node);
+void		quick_sort(int *array, int start, int end);
+int			get_median(int *array, int start, int end);
 int			sa(t_node **stacks);
 int			sb(t_node **stacks);
 int			ss(t_node **stacks);
@@ -80,14 +71,22 @@ int			rra(t_node **stacks);
 int			rrb(t_node **stacks);
 int			rrr(t_node **stacks);
 //debug
-void		print_stack(t_node *top_a,t_node *top_b);
-void		print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b);
-void		operations_test(t_node **top_a, t_node **top_b);
-int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
-void		sort_3(t_node **stacks,t_stack s_idx);
-void		test_3_sort();
+//void		print_stack(t_node *top_a,t_node *top_b);
+//void		print_chunk(t_chunk chunk,t_node *top_a,t_node *top_b);
+//void		operations_test(t_node **top_a, t_node **top_b);
+//int			bottom_up_merge_sort(t_node **top_a, t_node **top_b);
+//void		test_3_sort();
 //end debug
 void		clean_memory(t_node *stack);
-void sort(t_node **stacks);
-t_node *first_split(t_node **stacks, int size, t_node *chunk);
+void		sort(t_node **stacks);
+t_node		*first_split(t_node **stacks, int size, t_node *chunk);
+int			create_new_chunk(t_node **stacks, t_stack s_idx, int size);
+void		rrx(t_node **stacks, t_stack *s_idx);
+void		px(t_node **stacks, t_stack *s_idx);
+t_stack		chunk_handler(t_node **stacks, t_stack *s_idx, int ch_size, int i,
+				t_node *new_chunk);
+void		sort_3(t_node **stacks,t_stack s_idx);
+void		push_n(t_node **stacks, int size, t_stack *s_idx, t_node **chunk);
+int			split_b(t_node **stacks, t_stack s_idx, int ch_size, int median);
+int			split_a(t_node **stacks, t_stack s_idx, int ch_size, int median);
 #endif
