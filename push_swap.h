@@ -81,12 +81,11 @@ void		clean_memory(t_node *stack);
 void		sort(t_node **stacks);
 t_node		*first_split(t_node **stacks, int size, t_node *chunk);
 int			create_new_chunk(t_node **stacks, t_stack s_idx, int size);
-void		rrx(t_node **stacks, t_stack *s_idx);
-void		px(t_node **stacks, t_stack *s_idx);
-t_stack		chunk_handler(t_node **stacks, t_stack *s_idx, int ch_size, int i,
-				t_node *new_chunk);
+void		rrx(t_node **stacks, t_stack s_idx);
+void		px(t_node **stacks, t_stack s_idx);
+t_stack chunk_handler(t_node **stacks, t_stack s_idx, int ch_size);
 void		sort_3(t_node **stacks,t_stack s_idx);
-void		push_n(t_node **stacks, int size, t_stack *s_idx, t_node **chunk);
+void		push_n(t_node **stacks, int size, t_stack s_idx, t_node **chunk);
 int			split_b(t_node **stacks, t_stack s_idx, int ch_size, int median);
 int			split_a(t_node **stacks, t_stack s_idx, int ch_size, int median);
 #endif
